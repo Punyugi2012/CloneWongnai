@@ -67,12 +67,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print(scrollView.contentOffset.y)
-        
         let offset = scrollView.contentOffset.y / 50
-        
-        print(offset)
-
+    
         let backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: min(1, offset))
         
 //        self.navigationController?.navigationBar.tintColor = UIColor(hue: 1, saturation: offset, brightness: 1, alpha: 1)
