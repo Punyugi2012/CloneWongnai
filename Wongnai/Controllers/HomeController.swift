@@ -69,7 +69,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         let offset = scrollView.contentOffset.y / 50
     
-        let backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: min(1, offset))
+        let backgroundColor = UIColor.white.withAlphaComponent(min(1, offset))
         
 //        self.navigationController?.navigationBar.tintColor = UIColor(hue: 1, saturation: offset, brightness: 1, alpha: 1)
         
