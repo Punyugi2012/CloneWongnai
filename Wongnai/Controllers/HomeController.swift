@@ -54,6 +54,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerID, for: indexPath) as! HomeHeaderCell
             headerImageView = cell.imageView
+            blackView = cell.blackView
             return cell
         }
         
@@ -70,6 +71,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     var headerImageView: UIImageView?
+    var blackView: UIView?
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -99,7 +101,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let height = 230 + changedY
             headerImageView?.frame = CGRect(x: min(0, -changedY), y: min(0, -changedY), width: width, height: height)
         }
-
+        blackView?.frame = headerImageView?.frame ?? .zero
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

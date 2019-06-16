@@ -23,6 +23,12 @@ class HomeHeaderCell: UICollectionViewCell {
         return iv
     }()
     
+    let blackView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0, alpha: 0.15)
+        return view
+    }()
+    
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .white
@@ -73,6 +79,9 @@ class HomeHeaderCell: UICollectionViewCell {
         super.init(frame: frame)
         self.backgroundColor = .green
         self.addSubview(imageView)
+        
+        self.addSubview(blackView)
+        blackView.fillSuperview()
         
         self.addSubview(collectionView)
         collectionView.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 120))
