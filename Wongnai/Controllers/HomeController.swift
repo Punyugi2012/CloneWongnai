@@ -64,7 +64,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
-            return CGSize(width: self.view.frame.width, height: 300)
+            return CGSize(width: self.view.frame.width, height: 350)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
@@ -96,7 +96,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else {
             let width = max(view.frame.width, view.frame.width + changedY * 2)
-            let height = max(200, min(300 + changedY, width - 200))
+            let height = 230 + changedY
             headerImageView?.frame = CGRect(x: min(0, -changedY), y: min(0, -changedY), width: width, height: height)
         }
 

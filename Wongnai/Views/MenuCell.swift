@@ -22,7 +22,7 @@ class MenuCell: UICollectionViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .gray
         return label
     }()
@@ -43,14 +43,14 @@ class MenuCell: UICollectionViewCell {
         stackView.alignment = .center
         stackView.spacing = 5
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        stackView.layoutMargins = UIEdgeInsets(top: 35, left: 0, bottom: 20, right: 0)
         self.addSubview(stackView)
         stackView.fillSuperview()
         
         let separatorView = UIView()
         separatorView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         self.addSubview(separatorView)
-        separatorView.anchor(top: self.topAnchor, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0), size: CGSize(width: 1, height: 0))
+        separatorView.anchor(top: self.topAnchor, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 30, left: 0, bottom: 10, right: 0), size: CGSize(width: 1, height: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
