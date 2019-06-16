@@ -31,6 +31,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.scrollIndicatorInsets.top = -topInset
         self.collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        self.collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: headerID)
         
     }
     
@@ -50,20 +51,25 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        cell.backgroundColor = .blue
         if indexPath.item == 0 {
-            cell.backgroundColor = .red
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerID, for: indexPath) as! HomeHeaderCell
+            headerImageView = cell.imageView
+            return cell
         }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        cell.backgroundColor = .black
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
-            return CGSize(width: self.view.frame.width, height: 250)
+            return CGSize(width: self.view.frame.width, height: 300)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
+    
+    var headerImageView: UIImageView?
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -84,6 +90,16 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             self.navigationController?.navigationBar.barStyle = .default
         }
         
+        let changedY = -scrollView.contentOffset.y
+        if changedY < 0 {
+            headerImageView?.frame.origin.y = min(50, -(changedY / 2))
+        }
+        else {
+            let width = max(view.frame.width, view.frame.width + changedY * 2)
+            let height = max(200, min(300 + changedY, width - 200))
+            headerImageView?.frame = CGRect(x: min(0, -changedY), y: min(0, -changedY), width: width, height: height)
+        }
+
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
