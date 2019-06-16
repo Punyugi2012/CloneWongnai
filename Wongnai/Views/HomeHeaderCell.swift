@@ -49,6 +49,11 @@ class HomeHeaderCell: UICollectionViewCell {
         tf.placeholder = "ร้านอาหาร, เสริมสวย, สปา, ย่าน, ..."
         tf.font = UIFont.systemFont(ofSize: 14)
         
+        tf.layer.shadowColor = UIColor.black.cgColor
+        tf.layer.shadowOpacity = 0.3
+        tf.layer.shadowOffset = CGSize(width: 0, height: -2)
+        tf.layer.shadowRadius = 6
+        
         let leftImageView = UIImageView(image: UIImage(named: "search")?.withRenderingMode(.alwaysTemplate))
         leftImageView.tintColor = .gray
         leftImageView.contentMode = .right
@@ -77,14 +82,23 @@ class HomeHeaderCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
+        self.backgroundColor = .white
         self.addSubview(imageView)
         
         self.addSubview(blackView)
         blackView.fillSuperview()
         
-        self.addSubview(collectionView)
-        collectionView.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 120))
+        let collectionContainerView = UIView()
+        collectionContainerView.layer.shadowColor = UIColor.white.cgColor
+        collectionContainerView.layer.shadowOpacity = 1
+        collectionContainerView.layer.shadowOffset = CGSize(width: 0, height: -22)
+        collectionContainerView.layer.shadowRadius = 6
+
+        self.addSubview(collectionContainerView)
+        collectionContainerView.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 120))
+        
+        collectionContainerView.addSubview(collectionView)
+        collectionView.fillSuperview()
         
         self.addSubview(textField)
         textField.anchor(top: nil, leading: self.leadingAnchor, bottom: self.collectionView.topAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: -20, right: 10), size: CGSize(width: 0, height: 40))

@@ -59,7 +59,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        cell.backgroundColor = .black
+        cell.backgroundColor = .white
         return cell
     }
     

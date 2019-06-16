@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
-		62E73A1022B6549B008C68E3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0F22B6549B008C68E3 /* CustomTextField.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
 		62F0DDE322B4E37500B64388 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F0DDE222B4E37500B64388 /* Assets.xcassets */; };
 		62F0DDE622B4E37500B64388 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F0DDE422B4E37500B64388 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
-		62E73A0F22B6549B008C68E3 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F0DDDB22B4E37300B64388 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F0DDE222B4E37500B64388 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */,
-				62E73A0F22B6549B008C68E3 /* CustomTextField.swift */,
 				62E73A0D22B6419A008C68E3 /* MenuCell.swift */,
 			);
 			path = Views;
@@ -177,7 +174,6 @@
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
 				62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */,
 				62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */,
-				62E73A1022B6549B008C68E3 /* CustomTextField.swift in Sources */,
 				62F0DDF422B4FC2B00B64388 /* Extensions+UIView.swift in Sources */,
 				62F0DDF122B4EFA000B64388 /* HomeController.swift in Sources */,
 				62F0DDF622B4FC3500B64388 /* Extensions+UIColor.swift in Sources */,
@@ -328,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.punyugi.Wongnai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.punyugi.Wongnai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
