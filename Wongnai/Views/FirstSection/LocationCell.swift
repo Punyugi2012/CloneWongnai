@@ -64,8 +64,6 @@ class LocationCell: UICollectionViewCell {
         self.addSubview(nameLabel)
         nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: distanceLabel.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 3, right: 0), size: .zero)
         
-
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
