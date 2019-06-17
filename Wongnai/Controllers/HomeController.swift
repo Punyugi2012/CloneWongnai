@@ -14,6 +14,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellID = "cellID"
     let headerID = "headerID"
+    let firstSectionID = "firstSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -32,6 +33,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         self.collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: headerID)
+        self.collectionView.register(FirstSectionCell.self, forCellWithReuseIdentifier: firstSectionID)
         
     }
     
@@ -58,7 +60,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             nearMeButton = cell.nearMeButton
             return cell
         }
-        
+        else if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstSectionID, for: indexPath) as! FirstSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -67,6 +72,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
             return CGSize(width: self.view.frame.width, height: 350)
+        }
+        else if indexPath.item == 1 {
+            return CGSize(width: self.view.frame.width, height: 500)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
