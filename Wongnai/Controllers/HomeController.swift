@@ -55,6 +55,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerID, for: indexPath) as! HomeHeaderCell
             headerImageView = cell.imageView
             blackView = cell.blackView
+            nearMeButton = cell.nearMeButton
             return cell
         }
         
@@ -72,12 +73,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     var headerImageView: UIImageView?
     var blackView: UIView?
+    var nearMeButton: UIButton?
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset = scrollView.contentOffset.y / 50
     
         let backgroundColor = UIColor.white.withAlphaComponent(min(1, offset))
+        
+        nearMeButton?.alpha = 1 - offset
         
 //        self.navigationController?.navigationBar.tintColor = UIColor(hue: 1, saturation: offset, brightness: 1, alpha: 1)
         
