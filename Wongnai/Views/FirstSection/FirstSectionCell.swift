@@ -33,14 +33,14 @@ struct OverAllLocation {
 
 class FirstSectionCell: UICollectionViewCell {
     
-    let nearShopCollectionView: HContentCollectionView = {
-        let hccv = HContentCollectionView()
+    let nearShopCollectionView: NearShop_HitNearCollectionView = {
+        let hccv = NearShop_HitNearCollectionView()
         hccv.titleLabel.text = "ร้านใกล้ตัว"
         return hccv
     }()
     
-    let hitNearCollecitonView: HContentCollectionView = {
-        let hccv = HContentCollectionView()
+    let hitNearCollecitonView: NearShop_HitNearCollectionView = {
+        let hccv = NearShop_HitNearCollectionView()
         hccv.titleLabel.text = "ที่เที่ยวยอดนิยม ในชลบุรี"
         return hccv
     }()
