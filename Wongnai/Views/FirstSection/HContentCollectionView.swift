@@ -12,7 +12,7 @@ class HContentCollectionView: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "ร้านใกล้ตัว"
+        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
@@ -88,12 +88,13 @@ extension HContentCollectionView: UICollectionViewDataSource, UICollectionViewDe
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nextCellID, for: indexPath) as! LocationCell
-        cell.location = overAllLocation?.locations[indexPath.item - 1]
+        let item = indexPath.item - (overAllLocation?.landmarkLocation != nil ? 1 : 0)
+        cell.location = overAllLocation?.locations[item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 {
+        if indexPath.item == 0, overAllLocation?.landmarkLocation != nil {
             return CGSize(width: 250, height: hCollectionView.frame.height)
         }
         return CGSize(width: 120, height: hCollectionView.frame.height)

@@ -40,7 +40,7 @@ class LocationCell: UICollectionViewCell {
         didSet {
             imageView.image = UIImage(named: location?.imageName ?? "")
             nameLabel.text = location?.name
-            distanceLabel.text = "\(location?.distance ?? 0) ม."
+            distanceLabel.text = location?.distance.getFormateMeterDistance()
         }
     }
     
