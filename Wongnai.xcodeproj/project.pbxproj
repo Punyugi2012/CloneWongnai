@@ -19,7 +19,7 @@
 		62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5270F22B776BD0066FD24 /* FirstSectionCell.swift */; };
 		62F5271222B7792A0066FD24 /* HContentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271122B7792A0066FD24 /* HContentCollectionView.swift */; };
 		62F5271422B784D90066FD24 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271322B784D90066FD24 /* LocationCell.swift */; };
-		62F5271622B78D5D0066FD24 /* NearLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271522B78D5D0066FD24 /* NearLocationCell.swift */; };
+		62F5271622B78D5D0066FD24 /* LandmarkLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		62F5270F22B776BD0066FD24 /* FirstSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionCell.swift; sourceTree = "<group>"; };
 		62F5271122B7792A0066FD24 /* HContentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HContentCollectionView.swift; sourceTree = "<group>"; };
 		62F5271322B784D90066FD24 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		62F5271522B78D5D0066FD24 /* NearLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearLocationCell.swift; sourceTree = "<group>"; };
+		62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkLocationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				62F5270F22B776BD0066FD24 /* FirstSectionCell.swift */,
 				62F5271122B7792A0066FD24 /* HContentCollectionView.swift */,
 				62F5271322B784D90066FD24 /* LocationCell.swift */,
-				62F5271522B78D5D0066FD24 /* NearLocationCell.swift */,
+				62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */,
 			);
 			path = FirstSection;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 				62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */,
 				62F0DDF422B4FC2B00B64388 /* Extensions+UIView.swift in Sources */,
 				62F5271222B7792A0066FD24 /* HContentCollectionView.swift in Sources */,
-				62F5271622B78D5D0066FD24 /* NearLocationCell.swift in Sources */,
+				62F5271622B78D5D0066FD24 /* LandmarkLocationCell.swift in Sources */,
 				62F5271422B784D90066FD24 /* LocationCell.swift in Sources */,
 				62F0DDF122B4EFA000B64388 /* HomeController.swift in Sources */,
 				62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 class LocationCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "food1"))
+        let iv = UIImageView(image: nil)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -19,7 +19,7 @@ class LocationCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Cafe @ Library"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 13, weight: .heavy)
         label.textColor = .white
         return label
@@ -27,7 +27,7 @@ class LocationCell: UICollectionViewCell {
     
     let distanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "24 ม."
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = .white
         label.textAlignment = .right
@@ -35,6 +35,14 @@ class LocationCell: UICollectionViewCell {
     }()
     
     var gradientLayer: CAGradientLayer?
+    
+    var location: Location? {
+        didSet {
+            imageView.image = UIImage(named: location?.imageName ?? "")
+            nameLabel.text = location?.name
+            distanceLabel.text = "\(location?.distance ?? 0) ม."
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

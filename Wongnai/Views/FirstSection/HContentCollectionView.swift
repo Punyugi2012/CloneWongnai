@@ -23,9 +23,15 @@ class HContentCollectionView: UIView {
         return button
     }()
     
+    var overAllLocation: OverAllLocation? {
+        didSet {
+            hCollectionView.reloadData()
+        }
+    }
+    
     lazy var hCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.register(NearLocationCell.self, forCellWithReuseIdentifier: firstCellID)
+        collectionView.register(LandmarkLocationCell.self, forCellWithReuseIdentifier: firstCellID)
         collectionView.register(LocationCell.self, forCellWithReuseIdentifier: nextCellID)
         collectionView.backgroundColor = .white
         collectionView.delegate = self
@@ -40,9 +46,9 @@ class HContentCollectionView: UIView {
     let firstCellID = "firstCellID"
     let nextCellID = "cellID"
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         self.backgroundColor = .white
         
         self.addSubview(titleLabel)
@@ -58,6 +64,7 @@ class HContentCollectionView: UIView {
         
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -68,15 +75,20 @@ class HContentCollectionView: UIView {
 extension HContentCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let overAllLocation = self.overAllLocation, overAllLocation.landmarkLocation != nil {
+            return overAllLocation.locations.count + 1
+        }
+        return overAllLocation?.locations.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellID, for: indexPath)
+        if indexPath.item == 0, let landmarkLocation = overAllLocation?.landmarkLocation  {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellID, for: indexPath) as! LandmarkLocationCell
+            cell.landmarkLocation = landmarkLocation
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nextCellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nextCellID, for: indexPath) as! LocationCell
+        cell.location = overAllLocation?.locations[indexPath.item - 1]
         return cell
     }
     

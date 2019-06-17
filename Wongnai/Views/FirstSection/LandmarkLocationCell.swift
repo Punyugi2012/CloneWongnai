@@ -8,10 +8,10 @@
 
 import UIKit
 
-class NearLocationCell: UICollectionViewCell {
+class LandmarkLocationCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "Burapha"))
+        let iv = UIImageView(image: nil)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -19,7 +19,7 @@ class NearLocationCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "มหาวิทยาลัยบูรพา"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textColor = .white
         return label
@@ -32,6 +32,13 @@ class NearLocationCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    
+    var landmarkLocation: LandmarkLocation? {
+        didSet {
+            imageView.image = UIImage(named: landmarkLocation?.imageName ?? "")
+            nameLabel.text = landmarkLocation?.name
+        }
+    }
     
     var gradientLayer: CAGradientLayer?
     
