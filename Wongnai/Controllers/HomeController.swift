@@ -74,7 +74,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return CGSize(width: self.view.frame.width, height: 350)
         }
         else if indexPath.item == 1 {
-            return CGSize(width: self.view.frame.width, height: 500)
+            return CGSize(width: self.view.frame.width, height: 800)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }

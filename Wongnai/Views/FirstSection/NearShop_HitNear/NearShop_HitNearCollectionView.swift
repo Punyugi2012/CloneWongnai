@@ -20,8 +20,8 @@ class NearShop_HitNearCollectionView: BaseHContentCollectionView {
     let nextCellID = "cellID"
     
     override func setupCells() {
-        hCollectionView.register(LandmarkLocationCell.self, forCellWithReuseIdentifier: firstCellID)
-        hCollectionView.register(LocationCell.self, forCellWithReuseIdentifier: nextCellID)
+        hCollectionView.register(NearLandmarkLocationCell.self, forCellWithReuseIdentifier: firstCellID)
+        hCollectionView.register(NearLocationCell.self, forCellWithReuseIdentifier: nextCellID)
     }
     
 }
@@ -38,11 +38,11 @@ extension NearShop_HitNearCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0, let landmarkLocation = overAllLocation?.landmarkLocation  {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellID, for: indexPath) as! LandmarkLocationCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellID, for: indexPath) as! NearLandmarkLocationCell
             cell.landmarkLocation = landmarkLocation
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nextCellID, for: indexPath) as! LocationCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: nextCellID, for: indexPath) as! NearLocationCell
         let item = indexPath.item - (overAllLocation?.landmarkLocation != nil ? 1 : 0)
         cell.location = overAllLocation?.locations[item]
         return cell

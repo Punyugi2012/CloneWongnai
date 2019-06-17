@@ -1,5 +1,5 @@
 //
-//  LocationCell.swift
+//  NearLocation.swift
 //  Wongnai
 //
 //  Created by punyawee jaroentao on 17/6/2562 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationCell: UICollectionViewCell {
+class NearLandmarkLocationCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView(image: nil)
@@ -20,29 +20,27 @@ class LocationCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.systemFont(ofSize: 13, weight: .heavy)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textColor = .white
         return label
     }()
     
-    let distanceLabel: UILabel = {
+    let moreLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
+        label.text = "ดูร้านทั้งหมด"
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = .white
-        label.textAlignment = .right
         return label
     }()
     
-    var gradientLayer: CAGradientLayer?
-    
-    var location: Location? {
+    var landmarkLocation: LandmarkLocation? {
         didSet {
-            imageView.image = UIImage(named: location?.imageName ?? "")
-            nameLabel.text = location?.name
-            distanceLabel.text = location?.distance.getFormateMeterDistance()
+            imageView.image = UIImage(named: landmarkLocation?.imageName ?? "")
+            nameLabel.text = landmarkLocation?.name
         }
     }
+    
+    var gradientLayer: CAGradientLayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,15 +52,15 @@ class LocationCell: UICollectionViewCell {
         imageView.fillSuperview()
         
         gradientLayer = CAGradientLayer()
-        gradientLayer?.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        gradientLayer?.locations = [0.7, 1]
+        gradientLayer?.colors = [UIColor.black.cgColor, UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer?.locations = [-0.8, 0.5, 1.7]
         self.layer.addSublayer(gradientLayer!)
         
-        self.addSubview(distanceLabel)
-        distanceLabel.anchor(top: nil, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 3, right: 5), size: .zero)
-        
         self.addSubview(nameLabel)
-        nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: distanceLabel.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 3, right: 0), size: .zero)
+        nameLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0), size: .zero)
+        
+        self.addSubview(moreLabel)
+         moreLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 3, right: 0), size: .zero)
         
     }
     

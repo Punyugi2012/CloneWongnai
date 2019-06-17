@@ -45,6 +45,8 @@ class FirstSectionCell: UICollectionViewCell {
         return hccv
     }()
     
+    let dontMissCollectionView = DontMissCollectionView()
+    
     let nearShop = OverAllLocation(landmarkLocation: LandmarkLocation(name: "มหาวิทยาลัยบูรพา", imageName: "Burapha"), locations: [
         Location(name: "Cafe @ Library", distance: 25, imageName: "food1"),
         Location(name: "Seoul Bingsu Korean Dessert", distance: 200, imageName: "food2"),
@@ -61,9 +63,10 @@ class FirstSectionCell: UICollectionViewCell {
         Location(name: "เกาะขาม", distance: 7800, imageName: "place5"),
     ])
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
+        self.backgroundColor = .white
         self.addSubview(nearShopCollectionView)
         nearShopCollectionView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 200))
         nearShopCollectionView.overAllLocation = nearShop
@@ -71,6 +74,9 @@ class FirstSectionCell: UICollectionViewCell {
         self.addSubview(hitNearCollecitonView)
         hitNearCollecitonView.anchor(top: nearShopCollectionView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 200))
         hitNearCollecitonView.overAllLocation = hitNear
+        
+        self.addSubview(dontMissCollectionView)
+        dontMissCollectionView.anchor(top: hitNearCollecitonView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 270))
     }
     
     required init?(coder aDecoder: NSCoder) {
