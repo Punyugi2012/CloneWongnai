@@ -31,6 +31,14 @@ struct OverAllLocation {
     
 }
 
+struct DontMissLocation {
+    
+    let name: String
+    let caption: String
+    let imageName: String
+    
+}
+
 class FirstSectionCell: UICollectionViewCell {
     
     let nearShopCollectionView: NearShop_HitNearCollectionView = {
@@ -63,6 +71,14 @@ class FirstSectionCell: UICollectionViewCell {
         Location(name: "เกาะขาม", distance: 7800, imageName: "place5"),
     ])
     
+    let dontMissLocations: [DontMissLocation] = [
+        DontMissLocation(name: "Coffee Brewflavors", caption: "ร้านสไตล์ industrial loft เป็นคาเฟ่เล็กๆ ที่เต็มไปด้วยเมล็ดกาแฟคุณภาพ กลิ่นคั่วกาแฟหอมติดจมูก พร้อมเสิร์ฟความอบอุ่นให้ลูกค้า", imageName: "dm1"),
+        DontMissLocation(name: "Dude Coffee Bar X SM", caption: "ร้านเปิดใหม่จากการรวมตัวของคนรักกาแฟ ร้านเรียบง่าย สไตล์สายฮิป โซนบางแสน", imageName: "dm2"),
+        DontMissLocation(name: "Hops Addict Bangsaen", caption: "สายชิลล์รู้จักกันดี! ร้านกินดื่มสไตล์อิตาเลียน มีเครื่องดื่มอย่างเบียร์ให้เลือกหลายประเภท นอกจากนี้ยังมีอาหารอิตาเลียนขึ้นชื่ออย่างพิซซ่าและเมนูกินเล่นมากมาย", imageName: "dm3"),
+        DontMissLocation(name: "Plantaehouse", caption: "คาเฟ่บรรยากาศน่ารัก ล้อมรอบไปด้วยต้นไม้สีเขียวสบายตา เหมาะกับการมานั่งจิบน้ำกินขนม ชิลๆ ทำงาน อ่านหนังสือก็ดี เงียบสงบ", imageName: "dm4"),
+        DontMissLocation(name: "Sleepless Cafe'", caption: "คาเฟ่เปิดตลอด 24 ชั่วโมง ใจกลางบางแสน จะมาอ่านหนังสือ หรือทำการบ้านก็ชิลล์หมดเพราะมีเครื่องดื่ม ของหวาน และของกินเล่นบริการแบบจัดเต็ม", imageName: "dm5"),
+    ]
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,6 +93,7 @@ class FirstSectionCell: UICollectionViewCell {
         
         self.addSubview(dontMissCollectionView)
         dontMissCollectionView.anchor(top: hitNearCollecitonView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 270))
+        dontMissCollectionView.dontMissLocations = dontMissLocations
     }
     
     required init?(coder aDecoder: NSCoder) {

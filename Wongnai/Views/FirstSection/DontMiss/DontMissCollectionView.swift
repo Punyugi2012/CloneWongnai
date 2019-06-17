@@ -12,6 +12,12 @@ class DontMissCollectionView: BaseHContentCollectionView {
     
     let cellID = "cellID"
     
+    var dontMissLocations: [DontMissLocation]? {
+        didSet {
+            self.hCollectionView.reloadData()
+        }
+    }
+        
     override func setupCells() {
         hCollectionView.register(DontMissLocationCell.self, forCellWithReuseIdentifier: cellID)
     }
@@ -36,11 +42,12 @@ class DontMissCollectionView: BaseHContentCollectionView {
 extension DontMissCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return dontMissLocations?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! DontMissLocationCell
+        cell.dontMissLocation = dontMissLocations?[indexPath.item]
         return cell
     }
 
