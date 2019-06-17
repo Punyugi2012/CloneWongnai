@@ -21,6 +21,7 @@
 		62F5271422B784D90066FD24 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271322B784D90066FD24 /* LocationCell.swift */; };
 		62F5271622B78D5D0066FD24 /* LandmarkLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */; };
 		62F5271A22B7A6C20066FD24 /* Extensions+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271922B7A6C20066FD24 /* Extensions+Int.swift */; };
+		62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5271F22B7B7930066FD24 /* BaseHContentCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		62F5271322B784D90066FD24 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkLocationCell.swift; sourceTree = "<group>"; };
 		62F5271922B7A6C20066FD24 /* Extensions+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Int.swift"; sourceTree = "<group>"; };
+		62F5271F22B7B7930066FD24 /* BaseHContentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHContentCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				62F5271122B7792A0066FD24 /* HContentCollectionView.swift */,
 				62F5271322B784D90066FD24 /* LocationCell.swift */,
 				62F5271522B78D5D0066FD24 /* LandmarkLocationCell.swift */,
+				62F5271F22B7B7930066FD24 /* BaseHContentCollectionView.swift */,
 			);
 			path = FirstSection;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */,
+				62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */,
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
 				62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */,
 				62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */,
