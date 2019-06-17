@@ -54,11 +54,11 @@ class FirstSectionCell: UICollectionViewCell {
     ])
     
     let hitNear = OverAllLocation(landmarkLocation: nil, locations: [
-        Location(name: "Cafe @ Library", distance: 25, imageName: "food1"),
-        Location(name: "Seoul Bingsu Korean Dessert", distance: 200, imageName: "food2"),
-        Location(name: "Insomnia Specialty Coffee", distance: 300, imageName: "food3"),
-        Location(name: "Monkey & Me Cafe and Restaurant", distance: 400, imageName: "food4"),
-        Location(name: "Umai & Sushi อาหารสไตล์ญี่ปุ่น", distance: 500, imageName: "food5"),
+        Location(name: "ตลาดจีนโบราณชากแง้ว", distance: 5000, imageName: "place1"),
+        Location(name: "เกาะล้าน", distance: 4300, imageName: "place2"),
+        Location(name: "Silver Lake", distance: 5800, imageName: "place3"),
+        Location(name: "สวนสัตว์เปิดเขาเขียว", distance: 1600, imageName: "place4"),
+        Location(name: "เกาะขาม", distance: 7800, imageName: "place5"),
     ])
     
     override init(frame: CGRect) {
