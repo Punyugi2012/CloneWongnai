@@ -78,6 +78,36 @@ class HomeHeaderCell: UICollectionViewCell {
         
     }()
     
+    let captionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "fast food โดย Punyugi2012"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let nearMeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("ใกล้ฉัน", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.tintColor = .black
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.setImage(UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        return button
+    }()
+    
+    let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+    
     let cellID = "cellID"
     
     override init(frame: CGRect) {
@@ -102,6 +132,22 @@ class HomeHeaderCell: UICollectionViewCell {
         
         self.addSubview(textField)
         textField.anchor(top: nil, leading: self.leadingAnchor, bottom: self.collectionView.topAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: -20, right: 10), size: CGSize(width: 0, height: 40))
+        
+        self.addSubview(captionLabel)
+        captionLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: textField.topAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0), size: .zero)
+        
+        self.addSubview(nearMeButton)
+        nearMeButton.translatesAutoresizingMaskIntoConstraints = false
+        nearMeButton.widthAnchor.constraint(equalToConstant: 95).isActive = true
+        nearMeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        nearMeButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        nearMeButton.bottomAnchor.constraint(equalTo: captionLabel.topAnchor, constant: -50).isActive = true
+        nearMeButton.layer.cornerRadius = 30 / 2
+        nearMeButton.clipsToBounds = true
+        
+        self.addSubview(closeButton)
+        closeButton.anchor(top: nil, leading: nearMeButton.trailingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), size: CGSize(width: 44, height: 44))
+        closeButton.centerYAnchor.constraint(equalTo: nearMeButton.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
