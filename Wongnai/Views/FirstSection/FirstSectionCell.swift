@@ -39,6 +39,14 @@ struct DontMissLocation {
     
 }
 
+struct Category {
+    
+    let name: String
+    let isNew: Bool
+    let imageName: String
+    
+}
+
 class FirstSectionCell: UICollectionViewCell {
     
     let nearShopCollectionView: NearShop_HitNearCollectionView = {
@@ -54,6 +62,8 @@ class FirstSectionCell: UICollectionViewCell {
     }()
     
     let dontMissCollectionView = DontMissCollectionView()
+    
+    let categoryCollectionView = CategoryCollectionView()
     
     let nearShop = OverAllLocation(landmarkLocation: LandmarkLocation(name: "มหาวิทยาลัยบูรพา", imageName: "Burapha"), locations: [
         Location(name: "Cafe @ Library", distance: 25, imageName: "food1"),
@@ -79,10 +89,21 @@ class FirstSectionCell: UICollectionViewCell {
         DontMissLocation(name: "Sleepless Cafe'", caption: "คาเฟ่เปิดตลอด 24 ชั่วโมง ใจกลางบางแสน จะมาอ่านหนังสือ หรือทำการบ้านก็ชิลล์หมดเพราะมีเครื่องดื่ม ของหวาน และของกินเล่นบริการแบบจัดเต็ม", imageName: "dm5"),
     ]
     
+    let categories: [Category] = [
+        Category(name: "ร้านใหม่น่าเช็คอิน", isNew: true, imageName: "c1"),
+        Category(name: "ของหวาน", isNew: false, imageName: "c2"),
+        Category(name: "ร้านกาแฟ/ชา", isNew: false, imageName: "c3"),
+        Category(name: "คาเฟ่", isNew: false, imageName: "c4"),
+        Category(name: "เครื่องดื่ม/น้ำผลไม้", isNew: false, imageName: "c5"),
+        Category(name: "บิงซู", isNew: false, imageName: "c6"),
+        Category(name: "ไอศครีม", isNew: false, imageName: "c7"),
+        Category(name: "เบเกอรี/เค้ก", isNew: false, imageName: "c8")
+    ]
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .green
         self.addSubview(nearShopCollectionView)
         nearShopCollectionView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 200))
         nearShopCollectionView.overAllLocation = nearShop
@@ -94,6 +115,10 @@ class FirstSectionCell: UICollectionViewCell {
         self.addSubview(dontMissCollectionView)
         dontMissCollectionView.anchor(top: hitNearCollecitonView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 270))
         dontMissCollectionView.dontMissLocations = dontMissLocations
+        
+        self.addSubview(categoryCollectionView)
+        categoryCollectionView.anchor(top: dontMissCollectionView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 250))
+        categoryCollectionView.categories = categories
     }
     
     required init?(coder aDecoder: NSCoder) {

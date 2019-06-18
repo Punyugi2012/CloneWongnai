@@ -17,6 +17,8 @@ class NewIconLabel: UILabel {
         self.font = UIFont.boldSystemFont(ofSize: 17)
         self.backgroundColor = UIColor.rgb(230, 83, 68)
         self.textAlignment = .center
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {

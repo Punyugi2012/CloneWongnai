@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAB522B8D2C0004DC4DE /* NewIconLabel.swift */; };
 		62C7CAB822B8D485004DC4DE /* GradientBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAB722B8D485004DC4DE /* GradientBarView.swift */; };
+		62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CABB22B8D8BC004DC4DE /* CategoryCollectionView.swift */; };
+		62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CABD22B8D9EE004DC4DE /* CategoryCell.swift */; };
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		62C7CAB522B8D2C0004DC4DE /* NewIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIconLabel.swift; sourceTree = "<group>"; };
 		62C7CAB722B8D485004DC4DE /* GradientBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBarView.swift; sourceTree = "<group>"; };
+		62C7CABB22B8D8BC004DC4DE /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		62C7CABD22B8D9EE004DC4DE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62C7CABA22B8D894004DC4DE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				62C7CABB22B8D8BC004DC4DE /* CategoryCollectionView.swift */,
+				62C7CABD22B8D9EE004DC4DE /* CategoryCell.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		62E73A0A22B62535008C68E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 		62F5271822B790FD0066FD24 /* FirstSection */ = {
 			isa = PBXGroup;
 			children = (
+				62C7CABA22B8D894004DC4DE /* Category */,
 				62F5272522B7BED50066FD24 /* DontMiss */,
 				62F5272322B7BD2D0066FD24 /* NearShop_HitNear */,
 				62F5270F22B776BD0066FD24 /* FirstSectionCell.swift */,
@@ -233,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */,
+				62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */,
 				62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */,
 				62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */,
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
@@ -246,6 +261,7 @@
 				62F5272722B7C05D0066FD24 /* DontMissCollectionView.swift in Sources */,
 				62F0DDF122B4EFA000B64388 /* HomeController.swift in Sources */,
 				62F5271A22B7A6C20066FD24 /* Extensions+Int.swift in Sources */,
+				62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */,
 				62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */,
 				62C7CAB822B8D485004DC4DE /* GradientBarView.swift in Sources */,
 				62F0DDF622B4FC3500B64388 /* Extensions+UIColor.swift in Sources */,

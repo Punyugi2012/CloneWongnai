@@ -39,9 +39,6 @@ class DontMissCollectionView: BaseHContentCollectionView {
         newIconLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         newIconLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
         newIconLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3).isActive = true
-        newIconLabel.layer.cornerRadius = 5
-        newIconLabel.clipsToBounds = true
-        
         
         self.moreButton.alpha = 0
         
