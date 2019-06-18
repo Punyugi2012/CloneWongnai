@@ -15,7 +15,8 @@ class CategoryCollectionView: BaseHContentCollectionView {
     let moreCategoryButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("ดูหมวดหมู่ทั้งหมด", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.titleLabel?.font = UIFont.getFontSukhumvit(weight: .bold, size: 14)
+        button.setTitleColor(UIColor.rgb(69, 121, 144), for: .normal)
         return button
     }()
     

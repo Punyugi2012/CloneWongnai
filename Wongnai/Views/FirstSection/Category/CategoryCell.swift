@@ -20,7 +20,7 @@ class CategoryCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "ร้านใหม่น่าเช็คอิน"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.font = UIFont.getFontSukhumvit(weight: .bold, size: 13)
         label.textColor = .white
         label.numberOfLines = 0
         return label
@@ -66,7 +66,7 @@ class CategoryCell: UICollectionViewCell {
         newIconLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0), size: CGSize(width: 50, height: 20))
         
         self.addSubview(nameLabel)
-        nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10), size: CGSize(width: 0, height: 50))
+        nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10), size: CGSize(width: 0, height: 0))
         anchoredNewIcon = nameLabel.topAnchor.constraint(equalTo: newIconLabel.bottomAnchor, constant: 0)
         anchoredNewIcon?.isActive = true
         

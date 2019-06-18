@@ -11,6 +11,10 @@
 		62C7CAB822B8D485004DC4DE /* GradientBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAB722B8D485004DC4DE /* GradientBarView.swift */; };
 		62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CABB22B8D8BC004DC4DE /* CategoryCollectionView.swift */; };
 		62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CABD22B8D9EE004DC4DE /* CategoryCell.swift */; };
+		62C7CAC322B8EA40004DC4DE /* sukhumvitset-medium-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC022B8EA40004DC4DE /* sukhumvitset-medium-webfont.ttf */; };
+		62C7CAC422B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC122B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf */; };
+		62C7CAC522B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */; };
+		62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */; };
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
@@ -35,6 +39,10 @@
 		62C7CAB722B8D485004DC4DE /* GradientBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBarView.swift; sourceTree = "<group>"; };
 		62C7CABB22B8D8BC004DC4DE /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		62C7CABD22B8D9EE004DC4DE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		62C7CAC022B8EA40004DC4DE /* sukhumvitset-medium-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-medium-webfont.ttf"; sourceTree = "<group>"; };
+		62C7CAC122B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-bold-webfont.ttf"; sourceTree = "<group>"; };
+		62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-thin-webfont.ttf"; sourceTree = "<group>"; };
+		62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIFont.swift"; sourceTree = "<group>"; };
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +84,16 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		62C7CABF22B8EA2A004DC4DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				62C7CAC122B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf */,
+				62C7CAC022B8EA40004DC4DE /* sukhumvitset-medium-webfont.ttf */,
+				62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		62E73A0A22B62535008C68E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +122,7 @@
 		62F0DDDA22B4E37300B64388 /* Wongnai */ = {
 			isa = PBXGroup;
 			children = (
+				62C7CABF22B8EA2A004DC4DE /* Fonts */,
 				62E73A0A22B62535008C68E3 /* Views */,
 				62F0DDF222B4FBEE00B64388 /* Extensions */,
 				62F0DDED22B4E41900B64388 /* Controllers */,
@@ -130,6 +149,7 @@
 				62F0DDF522B4FC3500B64388 /* Extensions+UIColor.swift */,
 				62F0DDF322B4FC2B00B64388 /* Extensions+UIView.swift */,
 				62F5271922B7A6C20066FD24 /* Extensions+Int.swift */,
+				62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C7CAC522B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf in Resources */,
+				62C7CAC322B8EA40004DC4DE /* sukhumvitset-medium-webfont.ttf in Resources */,
+				62C7CAC422B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf in Resources */,
 				62F0DDE622B4E37500B64388 /* LaunchScreen.storyboard in Resources */,
 				62F0DDE322B4E37500B64388 /* Assets.xcassets in Resources */,
 			);
@@ -260,6 +283,7 @@
 				62F5271422B784D90066FD24 /* NearLocationCell.swift in Sources */,
 				62F5272722B7C05D0066FD24 /* DontMissCollectionView.swift in Sources */,
 				62F0DDF122B4EFA000B64388 /* HomeController.swift in Sources */,
+				62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */,
 				62F5271A22B7A6C20066FD24 /* Extensions+Int.swift in Sources */,
 				62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */,
 				62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */,
