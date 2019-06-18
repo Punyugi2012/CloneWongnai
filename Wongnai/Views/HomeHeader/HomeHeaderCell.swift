@@ -42,38 +42,13 @@ class HomeHeaderCell: UICollectionViewCell {
         return cv
     }()
     
-    let textField: UITextField = {
+    let textField: HomeTextField = {
         
-        let tf = UITextField()
-        tf.borderStyle = .roundedRect
-        tf.placeholder = "ร้านอาหาร, เสริมสวย, สปา, ย่าน, ..."
-        tf.font = UIFont.systemFont(ofSize: 14)
-        
+        let tf = HomeTextField()
         tf.layer.shadowColor = UIColor.black.cgColor
         tf.layer.shadowOpacity = 0.3
         tf.layer.shadowOffset = CGSize(width: 0, height: -2)
         tf.layer.shadowRadius = 6
-        
-        let leftImageView = UIImageView(image: UIImage(named: "search")?.withRenderingMode(.alwaysTemplate))
-        leftImageView.tintColor = .gray
-        leftImageView.contentMode = .right
-        leftImageView.frame = CGRect(x: 0, y: 0, width: leftImageView.image!.size.width + 10, height: leftImageView.image!.size.height)
-        
-        let rightImageView =  UIImageView(image: UIImage(named: "map")?.withRenderingMode(.alwaysTemplate))
-        rightImageView.tintColor = .gray
-        rightImageView.contentMode = .left
-        rightImageView.frame = CGRect(x: 0, y: 0, width: rightImageView.image!.size.width + 10, height: rightImageView.image!.size.height)
-        
-        tf.leftView = leftImageView
-        tf.rightView = rightImageView
-        tf.leftViewMode = .always
-        tf.rightViewMode = .always
-        
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        tf.addSubview(view)
-        view.anchor(top: tf.topAnchor, leading: nil, bottom: tf.bottomAnchor, trailing: tf.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: rightImageView.frame.width + 10), size: CGSize(width: 1, height: 0))
-
         return tf
         
     }()
