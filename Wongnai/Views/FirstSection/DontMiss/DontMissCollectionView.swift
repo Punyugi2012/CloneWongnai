@@ -12,6 +12,8 @@ class DontMissCollectionView: BaseHContentCollectionView {
     
     let cellID = "cellID"
     
+    let newIconLabel = NewIconLabel()
+    
     var dontMissLocations: [DontMissLocation]? {
         didSet {
             self.hCollectionView.reloadData()
@@ -25,8 +27,24 @@ class DontMissCollectionView: BaseHContentCollectionView {
     
     override func setupView() {
         super.setupView()
+        
         self.titleLabel.text = "#ห้ามพลาด"
+        self.titleLabel.removeFromSuperview()
+        self.addSubview(self.titleLabel)
+        titleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0), size: CGSize(width: 0, height: 50))
+        
+        self.addSubview(newIconLabel)
+        newIconLabel.translatesAutoresizingMaskIntoConstraints = false
+        newIconLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        newIconLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        newIconLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
+        newIconLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3).isActive = true
+        newIconLabel.layer.cornerRadius = 5
+        newIconLabel.clipsToBounds = true
+        
+        
         self.moreButton.alpha = 0
+        
         self.hCollectionView.removeFromSuperview()
         self.addSubview(hCollectionView)
         self.hCollectionView.anchor(top: self.titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0), size: .zero)

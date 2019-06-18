@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAB522B8D2C0004DC4DE /* NewIconLabel.swift */; };
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62C7CAB522B8D2C0004DC4DE /* NewIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIconLabel.swift; sourceTree = "<group>"; };
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				62F5272322B7BD2D0066FD24 /* NearShop_HitNear */,
 				62F5270F22B776BD0066FD24 /* FirstSectionCell.swift */,
 				62F5271F22B7B7930066FD24 /* BaseHContentCollectionView.swift */,
+				62C7CAB522B8D2C0004DC4DE /* NewIconLabel.swift */,
 			);
 			path = FirstSection;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */,
 				62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */,
 				62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */,
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
