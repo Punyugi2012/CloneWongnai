@@ -13,7 +13,7 @@ class DontMissLocationCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.getFontSukhumvit(weight: .bold, size: 14)
         label.textColor = .white
         return label
     }()

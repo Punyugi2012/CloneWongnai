@@ -20,7 +20,7 @@ class NearLocationCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.systemFont(ofSize: 13, weight: .heavy)
+        label.font = UIFont.getFontSukhumvit(weight: .bold, size: 13)
         label.textColor = .white
         return label
     }()
@@ -59,7 +59,7 @@ class NearLocationCell: UICollectionViewCell {
         self.layer.addSublayer(gradientLayer!)
         
         self.addSubview(distanceLabel)
-        distanceLabel.anchor(top: nil, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 3, right: 5), size: .zero)
+        distanceLabel.anchor(top: nil, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 7, right: 5), size: .zero)
         
         self.addSubview(nameLabel)
         nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: distanceLabel.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 3, right: 0), size: .zero)

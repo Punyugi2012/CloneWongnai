@@ -13,13 +13,15 @@ class BaseHContentCollectionView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.font = UIFont.getFontSukhumvit(weight: .bold, size: 16)
         return label
     }()
     
     let moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("ดูทั้งหมด", for: .normal)
+        button.titleLabel?.font = UIFont.getFontSukhumvit(weight: .medium, size: 14)
+        button.setTitleColor(UIColor.rgb(37, 121, 195), for: .normal)
         return button
     }()
     

@@ -20,7 +20,7 @@ class NearLandmarkLocationCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = UIFont.getFontSukhumvit(weight: .bold, size: 14)
         label.textColor = .white
         return label
     }()
@@ -28,7 +28,7 @@ class NearLandmarkLocationCell: UICollectionViewCell {
     let moreLabel: UILabel = {
         let label = UILabel()
         label.text = "ดูร้านทั้งหมด"
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.getFontSukhumvit(weight: .medium, size: 13)
         label.textColor = .white
         return label
     }()
