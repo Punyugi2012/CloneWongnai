@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
         
+        let tabBar = UITabBar.appearance()
+        tabBar.barTintColor = UIColor.white
+        tabBar.isTranslucent = false
+        tabBar.tintColor = UIColor.rgb(37, 121, 195)
+        
 //        for family in UIFont.familyNames {
 //            print("\(family)")
 //            

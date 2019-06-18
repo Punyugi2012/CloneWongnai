@@ -15,21 +15,26 @@ class MainTabBarController: UITabBarController {
         
         let homeController = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
         let homeNavigationController = UINavigationController(rootViewController: homeController)
-        homeController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
+        homeController.tabBarItem = UITabBarItem(title: "หน้าแรก", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_selected"))
         
         let recentReviewController = UIViewController()
-        recentReviewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
+        recentReviewController.tabBarItem = UITabBarItem(title: "รีวิวล่าสุด", image: UIImage(named: "recent_review"), selectedImage: UIImage(named: "recent_review_selected"))
         
         let cookController = UIViewController()
-        cookController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        cookController.tabBarItem = UITabBarItem(title: "ทำอาหาร", image: UIImage(named: "cook"), selectedImage: UIImage(named: "cooked"))
         
         let bookmarksController = UIViewController()
-        bookmarksController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        bookmarksController.tabBarItem = UITabBarItem(title: "ที่บันทึกไว้", image: UIImage(named: "bookmark"), selectedImage: UIImage(named: "bookmark_selected"))
         
         let profileController = UIViewController()
-        profileController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 0)
+        profileController.tabBarItem = UITabBarItem(title: "ฉัน", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile_selected"))
+        
         
         viewControllers = [homeNavigationController, recentReviewController, cookController, bookmarksController, profileController]
+        
+        for item in tabBar.items ?? [] {
+            item.imageInsets = UIEdgeInsets(top: 3, left: 0, bottom: -3, right: 0)
+        }
         
     }
     
