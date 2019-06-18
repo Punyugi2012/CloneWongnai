@@ -33,7 +33,7 @@ class MainTabBarController: UITabBarController {
         viewControllers = [homeNavigationController, recentReviewController, cookController, bookmarksController, profileController]
         
         for item in tabBar.items ?? [] {
-            item.imageInsets = UIEdgeInsets(top: 3, left: 0, bottom: -3, right: 0)
+            item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
         }
         
     }
