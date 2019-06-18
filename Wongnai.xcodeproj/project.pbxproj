@@ -15,6 +15,7 @@
 		62C7CAC422B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC122B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf */; };
 		62C7CAC522B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */; };
 		62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */; };
+		62C7CAC922B8FC79004DC4DE /* HomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAC822B8FC79004DC4DE /* HomeTextField.swift */; };
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		62C7CAC122B8EA40004DC4DE /* sukhumvitset-bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-bold-webfont.ttf"; sourceTree = "<group>"; };
 		62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-thin-webfont.ttf"; sourceTree = "<group>"; };
 		62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIFont.swift"; sourceTree = "<group>"; };
+		62C7CAC822B8FC79004DC4DE /* HomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTextField.swift; sourceTree = "<group>"; };
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 			children = (
 				62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */,
 				62E73A0D22B6419A008C68E3 /* MenuCell.swift */,
+				62C7CAC822B8FC79004DC4DE /* HomeTextField.swift */,
 			);
 			path = HomeHeader;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				62F5272922B7C1CC0066FD24 /* DontMissLocationCell.swift in Sources */,
 				62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */,
 				62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */,
+				62C7CAC922B8FC79004DC4DE /* HomeTextField.swift in Sources */,
 				62F5272222B7BCD00066FD24 /* NearShop_HitNearCollectionView.swift in Sources */,
 				62F0DDF422B4FC2B00B64388 /* Extensions+UIView.swift in Sources */,
 				62F5271622B78D5D0066FD24 /* NearLandmarkLocationCell.swift in Sources */,

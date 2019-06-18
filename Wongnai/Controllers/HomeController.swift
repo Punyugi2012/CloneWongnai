@@ -20,6 +20,21 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
     }()
     
+    let homeTextField: HomeTextField = {
+        let tv = HomeTextField()
+        tv.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        tv.borderStyle = .none
+        tv.layer.cornerRadius = 5
+        tv.clipsToBounds = true
+        return tv
+    }()
+    
+    let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.rgb(37, 121, 195)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -45,6 +60,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         statusBarView.backgroundColor = .clear
         self.view.addSubview(statusBarView)
         statusBarView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: UIApplication.shared.statusBarFrame.height)
+        
+        let navBar = navigationController!.navigationBar
+        navBar.addSubview(homeTextField)
+        homeTextField.anchor(top: navBar.topAnchor, leading: navBar.leadingAnchor, bottom: navBar.bottomAnchor, trailing: navBar.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 7, right: 10))
+        
+        navBar.addSubview(separatorView)
+        separatorView.anchor(top: nil, leading: navBar.leadingAnchor, bottom: navBar.bottomAnchor, trailing: navBar.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 1))
         
     }
     
@@ -90,6 +112,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let backgroundColor = UIColor.white.withAlphaComponent(min(1, offset))
         
         nearMeButton?.alpha = 1 - offset
+        
+        homeTextField.alpha = offset
+        
+        separatorView.alpha = offset
         
 //        self.navigationController?.navigationBar.tintColor = UIColor(hue: 1, saturation: offset, brightness: 1, alpha: 1)
         
