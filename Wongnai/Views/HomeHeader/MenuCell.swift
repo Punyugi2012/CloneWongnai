@@ -22,8 +22,8 @@ class MenuCell: UICollectionViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .gray
+        label.font = UIFont.getFontSukhumvit(weight: .medium, size: 13)
+        label.textColor = .darkGray
         return label
     }()
     

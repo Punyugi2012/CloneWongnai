@@ -93,10 +93,10 @@ class HomeHeaderCell: UICollectionViewCell {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.tintColor = .black
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.getFontSukhumvit(weight: .bold, size: 14)
         button.setImage(UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         return button
     }()
