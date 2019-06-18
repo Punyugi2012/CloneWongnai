@@ -63,10 +63,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         let navBar = navigationController!.navigationBar
         navBar.addSubview(homeTextField)
-        homeTextField.anchor(top: navBar.topAnchor, leading: navBar.leadingAnchor, bottom: navBar.bottomAnchor, trailing: navBar.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 7, right: 10))
+        homeTextField.anchor(top: navBar.topAnchor, leading: navBar.leadingAnchor, bottom: navBar.bottomAnchor, trailing: navBar.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 7, right: 70))
         
         navBar.addSubview(separatorView)
         separatorView.anchor(top: nil, leading: navBar.leadingAnchor, bottom: navBar.bottomAnchor, trailing: navBar.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 1))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "clock")?.withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: nil)
         
     }
     
@@ -117,16 +119,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         separatorView.alpha = offset
         
-//        self.navigationController?.navigationBar.tintColor = UIColor(hue: 1, saturation: offset, brightness: 1, alpha: 1)
         
         statusBarView.backgroundColor = backgroundColor
         self.navigationController?.navigationBar.backgroundColor = backgroundColor
 
-
+        let rightBarButton = navigationItem.rightBarButtonItem
         if offset < 0.2 {
+            rightBarButton?.tintColor = .white
             self.navigationController?.navigationBar.barStyle = .black
         }
         else {
+            rightBarButton?.tintColor = UIColor.rgb(37, 121, 195)
             self.navigationController?.navigationBar.barStyle = .default
         }
         
