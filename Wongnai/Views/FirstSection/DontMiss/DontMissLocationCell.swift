@@ -34,6 +34,8 @@ class DontMissLocationCell: UICollectionViewCell {
         return tv
     }()
     
+    let gradientBarView = GradientBarView()
+    
     var gradientLayer: CAGradientLayer?
     
     var dontMissLocation: DontMissLocation? {
@@ -58,11 +60,17 @@ class DontMissLocationCell: UICollectionViewCell {
         gradientLayer?.locations = [-0.5, 0.5]
         self.layer.addSublayer(gradientLayer!)
         
+        self.addSubview(gradientBarView)
+        gradientBarView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5), size: CGSize(width: 0, height: 3))
+        gradientBarView.layer.cornerRadius = 3 / 2
+        gradientBarView.clipsToBounds = true
+
         self.addSubview(nameLabel)
-        nameLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5), size: .zero)
+        nameLabel.anchor(top: gradientBarView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5), size: .zero)
         
         self.addSubview(captionLabel)
         captionLabel.anchor(top: nameLabel.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 2, left: 5, bottom: 0, right: 5), size: CGSize(width: 0, height: 40))
+        
         
     }
     
