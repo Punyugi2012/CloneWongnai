@@ -24,20 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wongnai" translatesAutoresizingMaskIntoConstraints="NO" id="qKE-VD-Q2l">
-                                <rect key="frame" x="82" y="326.5" width="250" height="100"/>
+                                <rect key="frame" x="82" y="398" width="250.00000000000006" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="0FA-oe-8LB"/>
                                     <constraint firstAttribute="height" constant="100" id="26J-Uf-Hhb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เชื่อมต่อสิ่งดีๆ ให้คุณ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyq-mR-hbo">
-                                <rect key="frame" x="121.5" y="436.5" width="171.5" height="23.5"/>
-                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.43889981508255005" blue="0.65915828943252563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wongnai.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9x-TU-WuY">
-                                <rect key="frame" x="134.5" y="846" width="145" height="20"/>
+                                <rect key="frame" x="130.5" y="837.5" width="153" height="28.5"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.43889981509999998" blue="0.65915828939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -45,12 +39,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Qyq-mR-hbo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FgM-iM-j0C"/>
-                            <constraint firstItem="Qyq-mR-hbo" firstAttribute="top" secondItem="qKE-VD-Q2l" secondAttribute="bottom" constant="10" id="Lvu-0I-7Ti"/>
                             <constraint firstItem="n9x-TU-WuY" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" constant="-30" id="Ytj-wo-bRQ"/>
                             <constraint firstItem="n9x-TU-WuY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Zxf-y5-QoG"/>
-                            <constraint firstItem="qKE-VD-Q2l" firstAttribute="centerX" secondItem="Qyq-mR-hbo" secondAttribute="centerX" id="fT6-HL-xRt"/>
-                            <constraint firstItem="Qyq-mR-hbo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qZg-Nk-JaS"/>
+                            <constraint firstItem="qKE-VD-Q2l" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="j4F-i6-jbp"/>
+                            <constraint firstItem="qKE-VD-Q2l" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lgg-Mv-BCb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
