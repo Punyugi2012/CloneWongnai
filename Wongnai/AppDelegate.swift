@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Thread.sleep(forTimeInterval: 1.0)
+        
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
@@ -24,14 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBar.barTintColor = UIColor.white
         tabBar.isTranslucent = false
         tabBar.tintColor = UIColor.rgb(37, 121, 195)
-        
-//        for family in UIFont.familyNames {
-//            print("\(family)")
-//            
-//            for name in UIFont.fontNames(forFamilyName: family) {
-//                print("   \(name)")
-//            }
-//        }
         
         return true
     }
