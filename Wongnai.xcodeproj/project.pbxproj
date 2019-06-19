@@ -16,6 +16,11 @@
 		62C7CAC522B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */; };
 		62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */; };
 		62C7CAC922B8FC79004DC4DE /* HomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7CAC822B8FC79004DC4DE /* HomeTextField.swift */; };
+		62E5571822BA233200B28F4F /* SecondSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571722BA233200B28F4F /* SecondSectionCell.swift */; };
+		62E5571A22BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571922BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift */; };
+		62E5571C22BA2BA500B28F4F /* HeaderPrivilegeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571B22BA2BA500B28F4F /* HeaderPrivilegeCell.swift */; };
+		62E5571E22BA2E8300B28F4F /* BodyPrivilegeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571D22BA2E8300B28F4F /* BodyPrivilegeCollectionView.swift */; };
+		62E5572022BA332800B28F4F /* BodyPrivilegeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571F22BA332800B28F4F /* BodyPrivilegeCell.swift */; };
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
@@ -45,6 +50,11 @@
 		62C7CAC222B8EA40004DC4DE /* sukhumvitset-thin-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sukhumvitset-thin-webfont.ttf"; sourceTree = "<group>"; };
 		62C7CAC622B8EB7A004DC4DE /* Extensions+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIFont.swift"; sourceTree = "<group>"; };
 		62C7CAC822B8FC79004DC4DE /* HomeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTextField.swift; sourceTree = "<group>"; };
+		62E5571722BA233200B28F4F /* SecondSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCell.swift; sourceTree = "<group>"; };
+		62E5571922BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrivilegeCollectionView.swift; sourceTree = "<group>"; };
+		62E5571B22BA2BA500B28F4F /* HeaderPrivilegeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrivilegeCell.swift; sourceTree = "<group>"; };
+		62E5571D22BA2E8300B28F4F /* BodyPrivilegeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPrivilegeCollectionView.swift; sourceTree = "<group>"; };
+		62E5571F22BA332800B28F4F /* BodyPrivilegeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPrivilegeCell.swift; sourceTree = "<group>"; };
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +106,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		62E5571622BA231500B28F4F /* SecondSection */ = {
+			isa = PBXGroup;
+			children = (
+				62E5571722BA233200B28F4F /* SecondSectionCell.swift */,
+				62E5571922BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift */,
+				62E5571B22BA2BA500B28F4F /* HeaderPrivilegeCell.swift */,
+				62E5571D22BA2E8300B28F4F /* BodyPrivilegeCollectionView.swift */,
+				62E5571F22BA332800B28F4F /* BodyPrivilegeCell.swift */,
+			);
+			path = SecondSection;
+			sourceTree = "<group>";
+		};
 		62E73A0A22B62535008C68E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				62E5571622BA231500B28F4F /* SecondSection */,
 				62F5271822B790FD0066FD24 /* FirstSection */,
 				62F5271722B790E80066FD24 /* HomeHeader */,
 			);
@@ -274,6 +297,7 @@
 			files = (
 				62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */,
 				62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */,
+				62E5571A22BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift in Sources */,
 				62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */,
 				62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */,
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
@@ -283,14 +307,18 @@
 				62C7CAC922B8FC79004DC4DE /* HomeTextField.swift in Sources */,
 				62F5272222B7BCD00066FD24 /* NearShop_HitNearCollectionView.swift in Sources */,
 				62F0DDF422B4FC2B00B64388 /* Extensions+UIView.swift in Sources */,
+				62E5571E22BA2E8300B28F4F /* BodyPrivilegeCollectionView.swift in Sources */,
+				62E5571C22BA2BA500B28F4F /* HeaderPrivilegeCell.swift in Sources */,
 				62F5271622B78D5D0066FD24 /* NearLandmarkLocationCell.swift in Sources */,
 				62F5271422B784D90066FD24 /* NearLocationCell.swift in Sources */,
 				62F5272722B7C05D0066FD24 /* DontMissCollectionView.swift in Sources */,
+				62E5572022BA332800B28F4F /* BodyPrivilegeCell.swift in Sources */,
 				62F0DDF122B4EFA000B64388 /* HomeController.swift in Sources */,
 				62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */,
 				62F5271A22B7A6C20066FD24 /* Extensions+Int.swift in Sources */,
 				62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */,
 				62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */,
+				62E5571822BA233200B28F4F /* SecondSectionCell.swift in Sources */,
 				62C7CAB822B8D485004DC4DE /* GradientBarView.swift in Sources */,
 				62F0DDF622B4FC3500B64388 /* Extensions+UIColor.swift in Sources */,
 			);

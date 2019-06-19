@@ -15,6 +15,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let cellID = "cellID"
     let headerID = "headerID"
     let firstSectionID = "firstSectionID"
+    let secondSectionID = "secondSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -49,6 +50,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         self.collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: headerID)
         self.collectionView.register(FirstSectionCell.self, forCellWithReuseIdentifier: firstSectionID)
+        self.collectionView.register(SecondSectionCell.self, forCellWithReuseIdentifier: secondSectionID)
         
     }
     
@@ -88,6 +90,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: firstSectionID, for: indexPath) as! FirstSectionCell
             return cell
         }
+        else if indexPath.item == 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: secondSectionID, for: indexPath) as! SecondSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -99,6 +105,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 1 {
             return CGSize(width: self.view.frame.width, height: 920)
+        }
+        else if indexPath.item == 2 {
+            return CGSize(width: self.view.frame.width, height: 370)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
