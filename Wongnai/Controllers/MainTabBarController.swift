@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController {
         recentReviewController.tabBarItem = UITabBarItem(title: "รีวิวล่าสุด", image: UIImage(named: "recent_review"), selectedImage: UIImage(named: "recent_review_selected"))
         
         let cookController = UIViewController()
-        cookController.tabBarItem = UITabBarItem(title: "ทำอาหาร", image: UIImage(named: "cook"), selectedImage: UIImage(named: "cooked"))
+        cookController.tabBarItem = UITabBarItem(title: "ทำอาหาร", image: UIImage(named: "cook"), selectedImage: UIImage(named: "cook_selected"))
         
         let bookmarksController = UIViewController()
         bookmarksController.tabBarItem = UITabBarItem(title: "ที่บันทึกไว้", image: UIImage(named: "bookmark"), selectedImage: UIImage(named: "bookmark_selected"))
