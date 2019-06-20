@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBar.isTranslucent = false
         tabBar.tintColor = UIColor.rgb(37, 121, 195)
         
+        let pageControl = UIPageControl.appearance()
+        pageControl.currentPageIndicatorTintColor = UIColor.rgb(255, 103, 43)
+        pageControl.pageIndicatorTintColor = UIColor(white: 0.8, alpha: 1)
         return true
     }
 

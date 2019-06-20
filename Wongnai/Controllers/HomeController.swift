@@ -17,6 +17,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let firstSectionID = "firstSectionID"
     let secondSectionID = "secondSectionID"
     let thirdSectionID = "thirdSectionID"
+    let fourthSectionID = "fourthSectionID"
+    let fifthSectionID = "fifthSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -53,6 +55,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(FirstSectionCell.self, forCellWithReuseIdentifier: firstSectionID)
         self.collectionView.register(SecondSectionCell.self, forCellWithReuseIdentifier: secondSectionID)
         self.collectionView.register(ThirdSectionCell.self, forCellWithReuseIdentifier: thirdSectionID)
+        self.collectionView.register(FourthSectionCell.self, forCellWithReuseIdentifier: fourthSectionID)
+        self.collectionView.register(FifthSectionCell.self, forCellWithReuseIdentifier: fifthSectionID)
     }
     
     func setupNavigation() {
@@ -76,7 +80,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,6 +103,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: thirdSectionID, for: indexPath) as! ThirdSectionCell
             return cell
         }
+        else if indexPath.item == 4 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: fourthSectionID, for: indexPath) as! FourthSectionCell
+            return cell
+        }
+        else if indexPath.item == 5 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: fifthSectionID, for: indexPath) as! FifthSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -116,6 +128,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 3 {
             return CGSize(width: self.view.frame.width, height: 290)
+        }
+        else if indexPath.item == 4 {
+            return CGSize(width: self.view.frame.width, height: 140)
+        }
+        else if indexPath.item == 5 {
+            return CGSize(width: self.view.frame.width, height: 287)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
