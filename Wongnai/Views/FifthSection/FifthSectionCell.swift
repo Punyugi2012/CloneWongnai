@@ -14,39 +14,67 @@ struct Recommend {
     
 }
 
+struct SpecialMeal {
+    
+    let imageName: String
+    
+}
+
 class FifthSectionCell: UICollectionViewCell {
     
-    let pageView = ContentPageView2()
+    let firstPageView: ContentImageCollectionPageView<Recommend> = {
+        let pv = ContentImageCollectionPageView<Recommend>()
+        pv.titleLabel.text = "ร้านอาหารแนะนำ"
+        return pv
+    }()
+    
+    let secondPageView: ContentImageCollectionPageView<SpecialMeal> = {
+        let pv = ContentImageCollectionPageView<SpecialMeal>()
+        pv.titleLabel.text = "ชวนพิสูจน์ มื้อพิเศษ"
+        return pv
+    }()
     
     var recommends: [Recommend]? {
         didSet {
-            pageView.recommends = recommends
+            firstPageView.models = recommends
         }
     }
     
-    var firstSubViewHeight: CGFloat? {
+    var specialMeals: [SpecialMeal]? {
         didSet {
-            firstSubViewHeightConstraint?.constant = firstSubViewHeight ?? 0
+            secondPageView.models = specialMeals
         }
     }
     
-    var secondSubViewHeight: CGFloat? {
+    var firstPageViewHeight: CGFloat? {
         didSet {
-            
+            firstPageViewHeightConstraint?.constant = firstPageViewHeight ?? 0
         }
     }
     
-    var firstSubViewHeightConstraint: NSLayoutConstraint?
+    var secondPageViewHeight: CGFloat? {
+        didSet {
+            secondPageViewHeightConstraint?.constant = secondPageViewHeight ?? 0
+        }
+    }
+    
+    var firstPageViewHeightConstraint: NSLayoutConstraint?
+    var secondPageViewHeightConstraint: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
-        self.addSubview(pageView)
+        
+        self.addSubview(firstPageView)
+        self.addSubview(secondPageView)
         
         
-        pageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: .zero)
-        firstSubViewHeightConstraint = pageView.heightAnchor.constraint(equalToConstant: 277)
-        firstSubViewHeightConstraint?.isActive = true
+        firstPageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: .zero)
+        firstPageViewHeightConstraint = firstPageView.heightAnchor.constraint(equalToConstant: 277)
+        firstPageViewHeightConstraint?.isActive = true
+        
+        secondPageView.anchor(top: firstPageView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: .zero)
+        secondPageViewHeightConstraint = secondPageView.heightAnchor.constraint(equalToConstant: 277)
+        secondPageViewHeightConstraint?.isActive = true
         
     }
     

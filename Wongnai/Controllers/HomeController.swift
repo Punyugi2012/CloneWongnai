@@ -113,7 +113,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             if Double(recommends.count) / 4.0 <= 1  {
                 firstSubViewHeight -= 17
             }
-            cell.firstSubViewHeight = firstSubViewHeight
+            var secondSubViewHeight: CGFloat = 277
+            if Double(specialMeals.count) / 4.0 <= 1  {
+                secondSubViewHeight -= 17
+            }
+            cell.firstPageViewHeight = firstSubViewHeight
+            cell.secondPageViewHeight = secondSubViewHeight
+            cell.specialMeals = specialMeals
             cell.recommends = recommends
             return cell
         }
@@ -127,6 +133,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         Recommend(imageName: "rc2"),
         Recommend(imageName: "rc3"),
         Recommend(imageName: "rc4"),
+    ]
+    
+    let specialMeals: [SpecialMeal] = [
+        SpecialMeal(imageName: "rc1"),
+        SpecialMeal(imageName: "rc2"),
+        SpecialMeal(imageName: "rc3"),
+        SpecialMeal(imageName: "rc4"),
+        SpecialMeal(imageName: "rc5"),
     ]
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -150,7 +164,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             if Double(recommends.count) / 4.0 <= 1  {
                 firstSubViewHeight -= 17
             }
-            return CGSize(width: self.view.frame.width, height: firstSubViewHeight)
+            var secondSubViewHeight: CGFloat = 277
+            if Double(specialMeals.count) / 4.0 <= 1  {
+                secondSubViewHeight -= 17
+            }
+            return CGSize(width: self.view.frame.width, height: firstSubViewHeight + secondSubViewHeight)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }

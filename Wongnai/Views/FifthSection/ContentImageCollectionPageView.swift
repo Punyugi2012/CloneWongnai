@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCollectionCell: UICollectionViewCell {
+class ImageCollectionCell<Model>: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView(image: nil)
@@ -17,9 +17,14 @@ class ImageCollectionCell: UICollectionViewCell {
         return iv
     }()
     
-    var recommend: Recommend? {
+    var model: Model? {
         didSet {
-            imageView.image = UIImage(named: recommend?.imageName ?? "")
+            if let recommend = model as? Recommend {
+                imageView.image = UIImage(named: recommend.imageName)
+            }
+            else if let special = model as? SpecialMeal {
+                imageView.image = UIImage(named: special.imageName)
+            }
         }
     }
     
@@ -39,11 +44,11 @@ class ImageCollectionCell: UICollectionViewCell {
     
 }
 
-class ImageCollectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ImageCollectionController<Model>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellID = "cellID"
     
-    var recommends: [Recommend]? {
+    var models: [Model]? {
         didSet {
             self.collectionView.reloadData()
         }
@@ -52,16 +57,16 @@ class ImageCollectionController: UICollectionViewController, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .white
-        self.collectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: cellID)
+        self.collectionView.register(ImageCollectionCell<Model>.self, forCellWithReuseIdentifier: cellID)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommends?.count ?? 0
+        return models?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionCell
-        cell.recommend = recommends?[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionCell<Model>
+        cell.model = models?[indexPath.item]
         return cell
     }
     
@@ -85,27 +90,27 @@ class ImageCollectionController: UICollectionViewController, UICollectionViewDel
 
 
 
-class CustomPageViewController2: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class ImageCollectionPageViewController<Model>: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    var imageCollectionControllers: [ImageCollectionController] = []
+    var imageCollectionControllers: [ImageCollectionController<Model>] = []
     
-    var recommends: [Recommend]? {
+    var models: [Model]? {
         didSet {
-            guard let recommends = recommends else {return}
+            guard let models = models else {return}
             imageCollectionControllers = []
-            var collected: [Recommend] = []
-            for (index, recommend) in recommends.enumerated() {
-                collected.append(recommend)
+            var collected: [Model] = []
+            for (index, model) in models.enumerated() {
+                collected.append(model)
                 if (index + 1) % 4 == 0 {
-                    let imageCollectionController = ImageCollectionController(collectionViewLayout: UICollectionViewFlowLayout())
-                    imageCollectionController.recommends = collected
+                    let imageCollectionController = ImageCollectionController<Model>(collectionViewLayout: UICollectionViewFlowLayout())
+                    imageCollectionController.models = collected
                     imageCollectionControllers.append(imageCollectionController)
                     collected = []
                 }
             }
             if !collected.isEmpty {
-                let imageCollectionController = ImageCollectionController(collectionViewLayout: UICollectionViewFlowLayout())
-                imageCollectionController.recommends = collected
+                let imageCollectionController = ImageCollectionController<Model>(collectionViewLayout: UICollectionViewFlowLayout())
+                imageCollectionController.models = collected
                 imageCollectionControllers.append(imageCollectionController)
             }
             if let firstVC = imageCollectionControllers.first {
@@ -172,7 +177,7 @@ class CustomPageViewController2: UIPageViewController, UIPageViewControllerDeleg
 }
 
 
-class ContentPageView2: UIView {
+class ContentImageCollectionPageView<Model>: UIView {
     
     
     let titleLabel: UILabel = {
@@ -190,11 +195,11 @@ class ContentPageView2: UIView {
         return button
     }()
     
-    let customPageViewController = CustomPageViewController2(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    let imageCollectionPageView = ImageCollectionPageViewController<Model>(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
-    var recommends: [Recommend]? {
+    var models: [Model]? {
         didSet {
-            customPageViewController.recommends = recommends
+            imageCollectionPageView.models = models
         }
     }
     
@@ -202,7 +207,7 @@ class ContentPageView2: UIView {
         super.init(frame: frame)
         self.backgroundColor = .white
         
-        titleLabel.text = "ชวนพิสูจน์ มื้อพิเศษ"
+        titleLabel.text = ""
         self.addSubview(self.titleLabel)
         self.titleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0), size: CGSize(width: 0, height: 50))
         
@@ -211,8 +216,8 @@ class ContentPageView2: UIView {
         moreButton.centerYAnchor.constraint(equalTo: self.titleLabel.centerYAnchor).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -3).isActive = true
         
-        self.addSubview(customPageViewController.view)
-        customPageViewController.view.anchor(top: titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .zero, size: .zero)
+        self.addSubview(imageCollectionPageView.view)
+        imageCollectionPageView.view.anchor(top: titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .zero, size: .zero)
     }
     
     required init?(coder aDecoder: NSCoder) {
