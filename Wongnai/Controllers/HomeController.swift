@@ -109,12 +109,25 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 5 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: fifthSectionID, for: indexPath) as! FifthSectionCell
+            var firstSubViewHeight: CGFloat = 277
+            if Double(recommends.count) / 4.0 <= 1  {
+                firstSubViewHeight -= 17
+            }
+            cell.firstSubViewHeight = firstSubViewHeight
+            cell.recommends = recommends
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
     }
+    
+    let recommends: [Recommend] = [
+        Recommend(imageName: "rc1"),
+        Recommend(imageName: "rc2"),
+        Recommend(imageName: "rc3"),
+        Recommend(imageName: "rc4"),
+    ]
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
@@ -133,7 +146,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return CGSize(width: self.view.frame.width, height: 140)
         }
         else if indexPath.item == 5 {
-            return CGSize(width: self.view.frame.width, height: 287)
+            var firstSubViewHeight: CGFloat = 277
+            if Double(recommends.count) / 4.0 <= 1  {
+                firstSubViewHeight -= 17
+            }
+            return CGSize(width: self.view.frame.width, height: firstSubViewHeight)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }

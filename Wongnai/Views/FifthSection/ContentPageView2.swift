@@ -92,6 +92,7 @@ class CustomPageViewController2: UIPageViewController, UIPageViewControllerDeleg
     var recommends: [Recommend]? {
         didSet {
             guard let recommends = recommends else {return}
+            imageCollectionControllers = []
             var collected: [Recommend] = []
             for (index, recommend) in recommends.enumerated() {
                 collected.append(recommend)
