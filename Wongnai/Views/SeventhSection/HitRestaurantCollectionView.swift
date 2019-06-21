@@ -12,6 +12,12 @@ class HitRestaurantCollectionView: BaseHContentCollectionView {
     
     let cellID = "cellID"
     
+    var hitRestaurants: [HitRestaurant]? {
+        didSet {
+            self.hCollectionView.reloadData()
+        }
+    }
+    
     override func setupView() {
         super.setupView()
         titleLabel.text = "ร้านอาหารยอดนิยม ในกรุงเทพและปริมณฑล"
@@ -34,11 +40,12 @@ class HitRestaurantCollectionView: BaseHContentCollectionView {
 extension HitRestaurantCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return hitRestaurants?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! HitRestaurantCell
+        cell.hitRestaurant = hitRestaurants?[indexPath.item]
         return cell
     }
     

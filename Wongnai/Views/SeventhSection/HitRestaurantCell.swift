@@ -11,7 +11,7 @@ import UIKit
 class HitRestaurantCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "food2"))
+        let iv = UIImageView(image: nil)
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
         return iv
@@ -19,26 +19,18 @@ class HitRestaurantCell: UICollectionViewCell {
     
     let rankView = RankView()
     
-    let nameButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.isEnabled = false
-        button.setTitle("Le Boeuf The Steak & Fries", for: .normal)
-        button.titleLabel?.numberOfLines = 2
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        button.setImage(UIImage(named: "check2")?.withRenderingMode(.alwaysOriginal), for: .disabled)
-        button.semanticContentAttribute = .forceRightToLeft
-        button.setTitleColor(.black, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.contentVerticalAlignment = .bottom
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        return button
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .black
+        label.numberOfLines = 0
+        return label
     }()
     
     let starButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = UIColor.rgb(205, 18, 1)
         button.isEnabled = false
-        button.setTitle("4.0", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         button.setImage(UIImage(named: "star")?.withRenderingMode(.alwaysTemplate), for: .disabled)
         button.tintColor = .white
@@ -51,14 +43,34 @@ class HitRestaurantCell: UICollectionViewCell {
     let reviewButton: UIButton = {
         let button = UIButton(type: .custom)
         button.isEnabled = false
-        button.setTitle("431", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.setImage(UIImage(named: "review")?.withRenderingMode(.alwaysTemplate), for: .disabled)
         button.tintColor = .gray
         button.setTitleColor(.gray, for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30)
         return button
     }()
+    
+    var hitRestaurant: HitRestaurant? {
+        didSet {
+            imageView.image = UIImage(named: hitRestaurant?.imageName ?? "")
+
+            let nameText = "\(hitRestaurant?.name ?? "")"
+            let nameAttributedText = NSMutableAttributedString(string: nameText + " ")
+            if hitRestaurant?.isCheck == true {
+                let imageAttachment = NSTextAttachment()
+                let image = UIImage(named: "check2")!
+                imageAttachment.image = image
+                imageAttachment.bounds = CGRect(x: 0, y: (nameLabel.font.capHeight - image.size.height).rounded() / 2, width: image.size.width, height: image.size.height)
+                nameAttributedText.append(NSAttributedString(attachment: imageAttachment))
+            }
+            nameLabel.attributedText = nameAttributedText
+            
+            starButton.setTitle("\(hitRestaurant?.score ?? 0)", for: .normal)
+            reviewButton.setTitle("\(hitRestaurant?.nReview ?? 0)", for: .normal)
+            rankView.numberLabel.text = "\(hitRestaurant?.rank ?? 0)"
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,11 +82,12 @@ class HitRestaurantCell: UICollectionViewCell {
         self.addSubview(rankView)
         rankView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 60, height: 30))
         
-        self.addSubview(nameButton)
-        nameButton.anchor(top: imageView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0), size: .zero)
+        self.addSubview(nameLabel)
+        nameLabel.anchor(top: imageView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: .zero)
         
+
         self.addSubview(starButton)
-        starButton.anchor(top: nameButton.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 60, height: 22))
+        starButton.anchor(top: nameLabel.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 60, height: 22))
         starButton.layer.cornerRadius = 3
         starButton.clipsToBounds = true
         
