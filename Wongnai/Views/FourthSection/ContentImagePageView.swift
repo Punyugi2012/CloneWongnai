@@ -25,7 +25,7 @@ class ImageViewController: UIViewController {
     
 }
 
-class CustomPageViewController1: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class ImagePageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     var imageViewControllers: [ImageViewController] = []
     
@@ -117,20 +117,20 @@ class CustomPageViewController1: UIPageViewController, UIPageViewControllerDeleg
     
 }
 
-class ContentPageView1: UIView {
+class ContentImagePageView: UIView {
     
-    let customPageViewController = CustomPageViewController1(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    let imagePageViewController = ImagePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
     var imageNames: [String]? {
         didSet {
-            customPageViewController.imageNames = imageNames
+            imagePageViewController.imageNames = imageNames
         }
     }
    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(customPageViewController.view)
-        customPageViewController.view.fillSuperview()
+        self.addSubview(imagePageViewController.view)
+        imagePageViewController.view.fillSuperview()
     }
     
     required init?(coder aDecoder: NSCoder) {

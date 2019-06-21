@@ -28,7 +28,7 @@
 		62E73A0C22B6254B008C68E3 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */; };
 		62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E73A0D22B6419A008C68E3 /* MenuCell.swift */; };
 		62E7978622BB82CD006C5B8C /* FourthSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E7978522BB82CD006C5B8C /* FourthSectionCell.swift */; };
-		62E7978A22BBAAB3006C5B8C /* ContentPageView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E7978922BBAAB3006C5B8C /* ContentPageView1.swift */; };
+		62E7978A22BBAAB3006C5B8C /* ContentImagePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E7978922BBAAB3006C5B8C /* ContentImagePageView.swift */; };
 		62E7978D22BBAE02006C5B8C /* FifthSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E7978C22BBAE02006C5B8C /* FifthSectionCell.swift */; };
 		62F0DDDC22B4E37300B64388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0DDDB22B4E37300B64388 /* AppDelegate.swift */; };
 		62F0DDE322B4E37500B64388 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F0DDE222B4E37500B64388 /* Assets.xcassets */; };
@@ -69,7 +69,7 @@
 		62E73A0B22B6254B008C68E3 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		62E73A0D22B6419A008C68E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		62E7978522BB82CD006C5B8C /* FourthSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSectionCell.swift; sourceTree = "<group>"; };
-		62E7978922BBAAB3006C5B8C /* ContentPageView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPageView1.swift; sourceTree = "<group>"; };
+		62E7978922BBAAB3006C5B8C /* ContentImagePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentImagePageView.swift; sourceTree = "<group>"; };
 		62E7978C22BBAE02006C5B8C /* FifthSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthSectionCell.swift; sourceTree = "<group>"; };
 		62F0DDD822B4E37300B64388 /* Wongnai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wongnai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F0DDDB22B4E37300B64388 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		62E7978422BB82BA006C5B8C /* FourthSection */ = {
 			isa = PBXGroup;
 			children = (
-				62E7978922BBAAB3006C5B8C /* ContentPageView1.swift */,
+				62E7978922BBAAB3006C5B8C /* ContentImagePageView.swift */,
 				62E7978522BB82CD006C5B8C /* FourthSectionCell.swift */,
 			);
 			path = FourthSection;
@@ -340,7 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E7978A22BBAAB3006C5B8C /* ContentPageView1.swift in Sources */,
+				62E7978A22BBAAB3006C5B8C /* ContentImagePageView.swift in Sources */,
 				62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */,
 				62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */,
 				62E5571A22BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift in Sources */,
