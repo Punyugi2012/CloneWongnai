@@ -136,11 +136,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     ]
     
     let specialMeals: [SpecialMeal] = [
-        SpecialMeal(imageName: "rc1"),
-        SpecialMeal(imageName: "rc2"),
-        SpecialMeal(imageName: "rc3"),
-        SpecialMeal(imageName: "rc4"),
-        SpecialMeal(imageName: "rc5"),
+        SpecialMeal(imageName: "sc1"),
+        SpecialMeal(imageName: "sc2"),
+        SpecialMeal(imageName: "sc3"),
+        SpecialMeal(imageName: "sc4"),
     ]
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
