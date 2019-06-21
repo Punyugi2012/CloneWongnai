@@ -139,6 +139,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         Recommend(imageName: "rc2"),
         Recommend(imageName: "rc3"),
         Recommend(imageName: "rc4"),
+        Recommend(imageName: "rc5"),
+        Recommend(imageName: "rc6"),
     ]
     
     let specialMeals: [SpecialMeal] = [
