@@ -20,6 +20,10 @@
 		62D2316D22BCCEBC0042B92E /* SixthSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2316C22BCCEBC0042B92E /* SixthSectionCell.swift */; };
 		62D2316F22BCCFF80042B92E /* RecommendedBrandCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2316E22BCCFF80042B92E /* RecommendedBrandCollectionView.swift */; };
 		62D2317122BCD2A70042B92E /* RecommendedBrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2317022BCD2A70042B92E /* RecommendedBrandCell.swift */; };
+		62D2317422BCDB870042B92E /* SeventhSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2317322BCDB870042B92E /* SeventhSectionCell.swift */; };
+		62D2317622BCDD410042B92E /* HitRestaurantCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2317522BCDD410042B92E /* HitRestaurantCollectionView.swift */; };
+		62D2317822BCDEC30042B92E /* HitRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2317722BCDEC30042B92E /* HitRestaurantCell.swift */; };
+		62D2317A22BCE0910042B92E /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2317922BCE0910042B92E /* RankView.swift */; };
 		62E5571822BA233200B28F4F /* SecondSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571722BA233200B28F4F /* SecondSectionCell.swift */; };
 		62E5571A22BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571922BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift */; };
 		62E5571C22BA2BA500B28F4F /* HeaderPrivilegeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E5571B22BA2BA500B28F4F /* HeaderPrivilegeCell.swift */; };
@@ -64,6 +68,10 @@
 		62D2316C22BCCEBC0042B92E /* SixthSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthSectionCell.swift; sourceTree = "<group>"; };
 		62D2316E22BCCFF80042B92E /* RecommendedBrandCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedBrandCollectionView.swift; sourceTree = "<group>"; };
 		62D2317022BCD2A70042B92E /* RecommendedBrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedBrandCell.swift; sourceTree = "<group>"; };
+		62D2317322BCDB870042B92E /* SeventhSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhSectionCell.swift; sourceTree = "<group>"; };
+		62D2317522BCDD410042B92E /* HitRestaurantCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRestaurantCollectionView.swift; sourceTree = "<group>"; };
+		62D2317722BCDEC30042B92E /* HitRestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitRestaurantCell.swift; sourceTree = "<group>"; };
+		62D2317922BCE0910042B92E /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 		62E5571722BA233200B28F4F /* SecondSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCell.swift; sourceTree = "<group>"; };
 		62E5571922BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrivilegeCollectionView.swift; sourceTree = "<group>"; };
 		62E5571B22BA2BA500B28F4F /* HeaderPrivilegeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrivilegeCell.swift; sourceTree = "<group>"; };
@@ -136,6 +144,17 @@
 			path = SixthSection;
 			sourceTree = "<group>";
 		};
+		62D2317222BCDB730042B92E /* SeventhSection */ = {
+			isa = PBXGroup;
+			children = (
+				62D2317322BCDB870042B92E /* SeventhSectionCell.swift */,
+				62D2317522BCDD410042B92E /* HitRestaurantCollectionView.swift */,
+				62D2317722BCDEC30042B92E /* HitRestaurantCell.swift */,
+				62D2317922BCE0910042B92E /* RankView.swift */,
+			);
+			path = SeventhSection;
+			sourceTree = "<group>";
+		};
 		62E5571622BA231500B28F4F /* SecondSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +180,7 @@
 		62E73A0A22B62535008C68E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				62D2317222BCDB730042B92E /* SeventhSection */,
 				62D2316B22BCCE920042B92E /* SixthSection */,
 				62E7978B22BBADF0006C5B8C /* FifthSection */,
 				62E7978422BB82BA006C5B8C /* FourthSection */,
@@ -361,6 +381,7 @@
 				62C7CAB622B8D2C0004DC4DE /* NewIconLabel.swift in Sources */,
 				62C7CABE22B8D9EE004DC4DE /* CategoryCell.swift in Sources */,
 				62E5571A22BA272F00B28F4F /* HeaderPrivilegeCollectionView.swift in Sources */,
+				62D2317422BCDB870042B92E /* SeventhSectionCell.swift in Sources */,
 				62E73A0E22B6419A008C68E3 /* MenuCell.swift in Sources */,
 				62F5272022B7B7930066FD24 /* BaseHContentCollectionView.swift in Sources */,
 				62F0DDEF22B4E43000B64388 /* MainTabBarController.swift in Sources */,
@@ -371,6 +392,8 @@
 				62C7CAC922B8FC79004DC4DE /* HomeTextField.swift in Sources */,
 				62E5572522BA450200B28F4F /* PromotionCollectionView.swift in Sources */,
 				62F5272222B7BCD00066FD24 /* NearShop_HitNearCollectionView.swift in Sources */,
+				62D2317622BCDD410042B92E /* HitRestaurantCollectionView.swift in Sources */,
+				62D2317A22BCE0910042B92E /* RankView.swift in Sources */,
 				62D2316A22BCC27B0042B92E /* ContentImageCollectionPageView.swift in Sources */,
 				62E7978622BB82CD006C5B8C /* FourthSectionCell.swift in Sources */,
 				62F0DDF422B4FC2B00B64388 /* Extensions+UIView.swift in Sources */,
@@ -387,6 +410,7 @@
 				62E7978D22BBAE02006C5B8C /* FifthSectionCell.swift in Sources */,
 				62C7CAC722B8EB7A004DC4DE /* Extensions+UIFont.swift in Sources */,
 				62F5271A22B7A6C20066FD24 /* Extensions+Int.swift in Sources */,
+				62D2317822BCDEC30042B92E /* HitRestaurantCell.swift in Sources */,
 				62E5572322BA445300B28F4F /* ThirdSectionCell.swift in Sources */,
 				62C7CABC22B8D8BC004DC4DE /* CategoryCollectionView.swift in Sources */,
 				62F5271022B776BD0066FD24 /* FirstSectionCell.swift in Sources */,
