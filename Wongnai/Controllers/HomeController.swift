@@ -19,6 +19,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let thirdSectionID = "thirdSectionID"
     let fourthSectionID = "fourthSectionID"
     let fifthSectionID = "fifthSectionID"
+    let sixthSectionID = "sixthSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -57,6 +58,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(ThirdSectionCell.self, forCellWithReuseIdentifier: thirdSectionID)
         self.collectionView.register(FourthSectionCell.self, forCellWithReuseIdentifier: fourthSectionID)
         self.collectionView.register(FifthSectionCell.self, forCellWithReuseIdentifier: fifthSectionID)
+        self.collectionView.register(SixthSectionCell.self, forCellWithReuseIdentifier: sixthSectionID)
     }
     
     func setupNavigation() {
@@ -123,6 +125,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             cell.recommends = recommends
             return cell
         }
+        else if indexPath.item == 6 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: sixthSectionID, for: indexPath) as! SixthSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -168,6 +174,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 secondSubViewHeight -= 17
             }
             return CGSize(width: self.view.frame.width, height: firstSubViewHeight + secondSubViewHeight)
+        }
+        else if indexPath.item == 6 {
+            return CGSize(width: self.view.frame.width, height: 180)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
