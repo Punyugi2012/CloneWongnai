@@ -59,7 +59,7 @@ class HitRestaurantCell: UICollectionViewCell {
             let nameAttributedText = NSMutableAttributedString(string: nameText + " ")
             if hitRestaurant?.isCheck == true {
                 let imageAttachment = NSTextAttachment()
-                let image = UIImage(named: "check2")!
+                let image = UIImage(named: "check")!
                 imageAttachment.image = image
                 imageAttachment.bounds = CGRect(x: 0, y: (nameLabel.font.capHeight - image.size.height).rounded() / 2, width: image.size.width, height: image.size.height)
                 nameAttributedText.append(NSAttributedString(attachment: imageAttachment))

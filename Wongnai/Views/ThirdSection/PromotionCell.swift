@@ -36,18 +36,8 @@ class PromotionCell: UICollectionViewCell {
     
     let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 2
-        label.textColor = .gray
-        label.font = UIFont.systemFont(ofSize: 15)
         return label
-    }()
-    
-    let checkImageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "check"))
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        return iv
     }()
     
     var promotion: Promotion? {
@@ -55,14 +45,20 @@ class PromotionCell: UICollectionViewCell {
             imageView.image = UIImage(named: promotion?.imageName ?? "")
             nameLabel.text = promotion?.name
             distanceLabel.text = promotion?.distance.getFormateMeterDistance()
+            
+            let captionAttributedText = NSMutableAttributedString(string: "")
             if promotion?.isCheck == true {
-                captionLabel.text = "      " + (promotion?.caption ?? "")
-                checkImageView.isHidden = false
+                let imageAttachment = NSTextAttachment()
+                let image = UIImage(named: "check")!
+                imageAttachment.image = image
+                imageAttachment.bounds = CGRect(x: 0, y: (nameLabel.font.capHeight - image.size.height).rounded() / 2, width: image.size.width, height: image.size.height)
+                captionAttributedText.append(NSAttributedString(attachment: imageAttachment))
             }
-            else {
-                captionLabel.text = promotion?.caption ?? ""
-                checkImageView.isHidden = true
-            }
+            captionAttributedText.append(NSAttributedString(string: "\(promotion?.caption ?? "")", attributes: [
+                .font: UIFont.systemFont(ofSize: 15),
+                .foregroundColor: UIColor.gray
+            ]))
+            captionLabel.attributedText = captionAttributedText
         }
     }
     
@@ -84,8 +80,6 @@ class PromotionCell: UICollectionViewCell {
         self.addSubview(captionLabel)
         captionLabel.anchor(top: nameLabel.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: .zero)
         
-        self.addSubview(checkImageView)
-        checkImageView.anchor(top: nameLabel.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: -3, left: 0, bottom: 0, right: 0), size: CGSize(width: 20, height: 20))
     }
     
     required init?(coder aDecoder: NSCoder) {
