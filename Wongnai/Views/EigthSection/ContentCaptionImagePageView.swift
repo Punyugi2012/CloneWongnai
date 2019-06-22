@@ -142,14 +142,33 @@ class CaptionImagePageViewController: UIPageViewController, UIPageViewController
                 captionImageController.newRestaurant = newRes
                 self.captionImageControllers.append(captionImageController)
             })
-            setViewControllers([captionImageControllers.first!], direction: .forward, animated: true, completion: nil)
+            if let firstVC = captionImageControllers.first {
+                setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+                time = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
+                    if self.currentIndex + 1 > self.captionImageControllers.count - 1 {
+                        self.currentIndex = 0
+                        self.setViewControllers([self.captionImageControllers[self.currentIndex]], direction: .reverse, animated: true)
+                    }
+                    else {
+                        self.currentIndex += 1
+                        self.setViewControllers([self.captionImageControllers[self.currentIndex]], direction: .forward, animated: true)
+                    }
+                })
+            }
         }
     }
+    
+    var time: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        time?.invalidate()
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
