@@ -23,7 +23,7 @@ class CustomLabel: UILabel {
 class CaptionImageController: UIViewController {
     
     let imageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "place1"))
+        let iv = UIImageView(image: nil)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -31,7 +31,6 @@ class CaptionImageController: UIViewController {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "The Barn"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 15)
         label.textAlignment = .center
@@ -40,7 +39,6 @@ class CaptionImageController: UIViewController {
     
     let locationNameLabel: CustomLabel = {
         let label = CustomLabel()
-        label.text = "เมืองระยอง"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 16)
         label.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -50,7 +48,6 @@ class CaptionImageController: UIViewController {
     
     let nBookmarkLabel: UILabel = {
         let label = UILabel()
-        label.text = "301"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
         return label
@@ -59,14 +56,10 @@ class CaptionImageController: UIViewController {
     let captionLabel: UILabel = {
         
         let label = UILabel()
-        
-        let attributedString = NSMutableAttributedString(string: "[รีวิว] California Steak ระยอง สเต็กไม่อั้นบนดาดฟ้าโรงแรมเพียง 690 บ.", attributes: [.font: UIFont.systemFont(ofSize: 15)])
-        attributedString.append(NSAttributedString(string: "• [Ad]", attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-        
-        label.attributedText = attributedString
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
+        
     }()
     
     let bookmarkImageView: UIImageView = {
@@ -77,10 +70,33 @@ class CaptionImageController: UIViewController {
         return iv
     }()
     
+    var gradientLayer: CAGradientLayer?
+    
+    var newRestaurant: NewRestaurant? {
+        didSet {
+            imageView.image = UIImage(named: newRestaurant?.imageName ?? "")
+            nameLabel.text = newRestaurant?.name
+            locationNameLabel.text = newRestaurant?.locationName
+            nBookmarkLabel.text = "\(newRestaurant?.nBookmark ?? 0)"
+            
+            let attributedString = NSMutableAttributedString(string: "\(newRestaurant?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15)])
+            if newRestaurant?.isAd == true {
+                attributedString.append(NSAttributedString(string: "• [Ad]", attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
+            }
+            captionLabel.attributedText = attributedString
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(imageView)
         imageView.anchor(top: self.view.topAnchor, leading: self.view.leadingAnchor, bottom: nil, trailing: self.view.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 250))
+        
+        gradientLayer = CAGradientLayer()
+        gradientLayer?.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer?.locations = [0, 1.5]
+        
+        self.view.layer.addSublayer(gradientLayer!)
         
         let containerView = UIView()
         containerView.backgroundColor = .white
@@ -106,23 +122,34 @@ class CaptionImageController: UIViewController {
         locationNameLabel.anchor(top: self.view.topAnchor, leading: nil, bottom: nil, trailing: self.view.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: .zero)
     }
     
+    override func viewDidLayoutSubviews() {
+        gradientLayer?.frame = self.view.bounds
+    }
+    
 }
 
 class CaptionImagePageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     
-    let captionImageControllers: [CaptionImageController] = [
-        CaptionImageController(),
-        CaptionImageController(),
-    ]
+    var captionImageControllers: [CaptionImageController] = []
     
     var currentIndex = 0
+    
+    var newRestaurants: [NewRestaurant]? {
+        didSet {
+            newRestaurants?.forEach({ (newRes) in
+                let captionImageController = CaptionImageController()
+                captionImageController.newRestaurant = newRes
+                self.captionImageControllers.append(captionImageController)
+            })
+            setViewControllers([captionImageControllers.first!], direction: .forward, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        setViewControllers([captionImageControllers.first!], direction: .forward, animated: true, completion: nil)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -161,7 +188,6 @@ class CaptionImagePageViewController: UIPageViewController, UIPageViewController
             return ic === firstVC
         }
         currentIndex = index ?? 0
-        print(currentIndex)
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
@@ -181,6 +207,7 @@ class CaptionImagePageViewController: UIPageViewController, UIPageViewController
             }
             else if view is UIPageControl {
                 view.frame.origin.y = 250 - 37
+                view.isUserInteractionEnabled = false
             }
         }
     }
@@ -206,6 +233,12 @@ class ContentCaptionImagePageView: UIView {
     }()
     
     let pageView = CaptionImagePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    
+    var newRestaurants: [NewRestaurant]? {
+        didSet {
+            pageView.newRestaurants = newRestaurants
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
