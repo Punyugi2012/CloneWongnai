@@ -94,7 +94,7 @@ class CaptionImageController: UIViewController {
         
         gradientLayer = CAGradientLayer()
         gradientLayer?.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        gradientLayer?.locations = [0.5, 1]
+        gradientLayer?.locations = [0.4, 1]
         
         self.view.layer.addSublayer(gradientLayer!)
         
