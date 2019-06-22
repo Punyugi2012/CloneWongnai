@@ -108,7 +108,7 @@ class BodyNewResCell: UICollectionViewCell {
         containerView.anchor(top: imageView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
         
         self.addSubview(nameLabel)
-        nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: imageView.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
+        nameLabel.anchor(top: nil, leading: self.leadingAnchor, bottom: imageView.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10))
         
         self.addSubview(locationNameLabel)
         locationNameLabel.anchor(top: self.topAnchor, leading: nil, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: .zero)
