@@ -21,6 +21,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let fifthSectionID = "fifthSectionID"
     let sixthSectionID = "sixthSectionID"
     let seventhSectionID = "seventhSectionID"
+    let eigthSectionID = "eigthSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -61,6 +62,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(FifthSectionCell.self, forCellWithReuseIdentifier: fifthSectionID)
         self.collectionView.register(SixthSectionCell.self, forCellWithReuseIdentifier: sixthSectionID)
         self.collectionView.register(SeventhSectionCell.self, forCellWithReuseIdentifier: seventhSectionID)
+        self.collectionView.register(EigthSectionCell.self, forCellWithReuseIdentifier: eigthSectionID)
     }
     
     func setupNavigation() {
@@ -135,6 +137,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: seventhSectionID, for: indexPath) as! SeventhSectionCell
             return cell
         }
+        else if indexPath.item == 8 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eigthSectionID, for: indexPath) as! EigthSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -188,6 +194,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 7 {
             return CGSize(width: self.view.frame.width, height: 300)
+        }
+        else if indexPath.item == 8 {
+            return CGSize(width: self.view.frame.width, height: 800)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
