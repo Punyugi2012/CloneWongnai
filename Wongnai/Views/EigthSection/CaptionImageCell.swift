@@ -84,10 +84,12 @@ class CaptionImageCell: UICollectionViewCell {
                 bookmarkImageView.alpha = 1
                 nBookmarkLabel.alpha = 1
                 nBookmarkLabel.text = "\(captionImage?.nBookmark ?? 0)"
+                anchoredConstraintCaptionLabel?.trailing?.constant = -50
             }
             else {
                 bookmarkImageView.alpha = 0
                 nBookmarkLabel.alpha = 0
+                anchoredConstraintCaptionLabel?.trailing?.constant = 0
             }
             
             let attributedString = NSMutableAttributedString(string: "\(captionImage?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: captionImage?.isAd == true ? UIColor.rgb(37, 121, 195) : .black])
@@ -98,6 +100,8 @@ class CaptionImageCell: UICollectionViewCell {
             
         }
     }
+    
+    var anchoredConstraintCaptionLabel: AnchoredConstraints?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -121,7 +125,7 @@ class CaptionImageCell: UICollectionViewCell {
         bookmarkImageView.anchor(top: containerView.topAnchor, leading: nil, bottom: nil, trailing: containerView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), size: CGSize(width: 30, height: 30))
         
         containerView.addSubview(captionLabel)
-        captionLabel.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: nil, trailing: containerView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 50), size: .zero)
+        anchoredConstraintCaptionLabel = captionLabel.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: nil, trailing: containerView.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 50), size: .zero)
         
         containerView.addSubview(nBookmarkLabel)
         nBookmarkLabel.translatesAutoresizingMaskIntoConstraints = false
