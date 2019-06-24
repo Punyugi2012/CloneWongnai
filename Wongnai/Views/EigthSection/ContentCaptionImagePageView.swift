@@ -72,15 +72,39 @@ class CaptionImageController: UIViewController {
     
     var gradientLayer: CAGradientLayer?
     
-    var newRestaurant: NewRestaurant? {
+    var captionImage: CaptionImage? {
         didSet {
-            imageView.image = UIImage(named: newRestaurant?.imageName ?? "")
-            nameLabel.text = newRestaurant?.name
-            locationNameLabel.text = newRestaurant?.locationName
-            nBookmarkLabel.text = "\(newRestaurant?.nBookmark ?? 0)"
+            imageView.image = UIImage(named: captionImage?.imageName ?? "")
+            nameLabel.text = captionImage?.name
             
-            let attributedString = NSMutableAttributedString(string: "\(newRestaurant?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15)])
-            if newRestaurant?.isAd == true {
+            if let name = captionImage?.name {
+                nameLabel.alpha = 1
+                nameLabel.text = name
+            }
+            else {
+                nameLabel.alpha = 0
+            }
+            
+            if let locationName = captionImage?.locationName {
+                locationNameLabel.alpha = 1
+                locationNameLabel.text = locationName
+            }
+            else {
+                locationNameLabel.alpha = 0
+            }
+            
+            if captionImage?.isShowBookmark == true {
+                nBookmarkLabel.alpha = 1
+                bookmarkImageView.alpha = 1
+                nBookmarkLabel.text = "\(captionImage?.nBookmark ?? 0)"
+            }
+            else {
+                nBookmarkLabel.alpha = 0
+                bookmarkImageView.alpha = 0
+            }
+            
+            let attributedString = NSMutableAttributedString(string: "\(captionImage?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15)])
+            if captionImage?.isAd == true {
                 attributedString.append(NSAttributedString(string: "• [Ad]", attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
             }
             captionLabel.attributedText = attributedString
@@ -135,11 +159,11 @@ class CaptionImagePageViewController: UIPageViewController, UIPageViewController
     
     var currentIndex = 0
     
-    var newRestaurants: [NewRestaurant]? {
+    var captionImages: [CaptionImage]? {
         didSet {
-            newRestaurants?.forEach({ (newRes) in
+            captionImages?.forEach({ (newRes) in
                 let captionImageController = CaptionImageController()
-                captionImageController.newRestaurant = newRes
+                captionImageController.captionImage = newRes
                 self.captionImageControllers.append(captionImageController)
             })
             if let firstVC = captionImageControllers.first {
@@ -253,9 +277,9 @@ class ContentCaptionImagePageView: UIView {
     
     let pageView = CaptionImagePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
-    var newRestaurants: [NewRestaurant]? {
+    var captionImages: [CaptionImage]? {
         didSet {
-            pageView.newRestaurants = newRestaurants
+            pageView.captionImages = captionImages
         }
     }
     

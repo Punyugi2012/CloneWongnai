@@ -12,7 +12,7 @@ class BodyNewRestaurantCollectionView: BaseHContentCollectionView {
     
     let cellID = "cellID"
     
-    var newRestaurants: [NewRestaurant]? {
+    var newRestaurants: [CaptionImage]? {
         didSet {
             self.hCollectionView.reloadData()
         }

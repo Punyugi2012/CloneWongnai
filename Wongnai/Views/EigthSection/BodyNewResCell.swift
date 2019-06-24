@@ -60,7 +60,7 @@ class BodyNewResCell: UICollectionViewCell {
     
     var gradientLayer: CAGradientLayer?
     
-    var newRestaurant: NewRestaurant? {
+    var newRestaurant: CaptionImage? {
         didSet {
             imageView.image = UIImage(named: newRestaurant?.imageName ?? "")
             nameLabel.text = newRestaurant?.name
