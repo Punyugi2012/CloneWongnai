@@ -147,7 +147,9 @@ class CaptionImageController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        gradientLayer?.frame = self.view.bounds
+        if captionImage?.name != nil {
+            gradientLayer?.frame = self.view.bounds
+        }
     }
     
 }
@@ -262,7 +264,6 @@ class ContentCaptionImagePageView: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "ร้านอาหารใหม่ และน่าสนใจ ในชลบุรี"
         label.font = UIFont.getFontSukhumvit(weight: .bold, size: 16)
         return label
     }()

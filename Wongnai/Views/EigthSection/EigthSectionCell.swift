@@ -22,13 +22,24 @@ struct CaptionImage {
 
 class EigthSectionCell: UICollectionViewCell {
     
-    let headerPageView = ContentCaptionImagePageView()
+    let headerPageView: ContentCaptionImagePageView = {
+        let view = ContentCaptionImagePageView()
+        view.titleLabel.text = "ร้านอาหารใหม่ และน่าสนใจ ในชลบุรี"
+        return view
+    }()
     
     let bodyCollectionView = ContentCaptionImageCollectionView(isShowHeaderControls: false)
     
     let restaurantCluesCollectionView: ContentCaptionImageCollectionView = {
         let view = ContentCaptionImageCollectionView(isShowHeaderControls: true)
         view.titleLabel.text = "ลายแทงร้านอาหารในชลบุรี"
+        return view
+    }()
+    
+    let interestingTripsPageView: ContentCaptionImagePageView = {
+        let view = ContentCaptionImagePageView()
+        view.moreButton.isHidden = true
+        view.titleLabel.text = "ทริป ที่พักและสถานที่่ท่องเที่ยวที่น่าสนใจ"
         return view
     }()
     
@@ -50,6 +61,12 @@ class EigthSectionCell: UICollectionViewCell {
         CaptionImage(name: nil, caption: "10 ร้านบุฟเฟ่ต์ชาบู อิ่มคุ้มแบบจัดหนัก ระดับพรีเมียม!", locationName: nil, isAd: false, nBookmark: 0, imageName: "cres2", isShowBookmark: false),
         CaptionImage(name: nil, caption: "10 ร้านชานมไข่มุกไต้หวัน หอมชาเข้ม เนื้อมุกหนึบ จนต้องเบิล!", locationName: nil, isAd: false, nBookmark: 0, imageName: "cres3", isShowBookmark: false)
     ]
+    
+    let interestingTrips: [CaptionImage] = [
+        CaptionImage(name: nil, caption: "2 วัน 1 คืน เที่ยวธรรมชาติรอบโคราช หน้าฝนก็เที่ยวได้", locationName: "เมืองนครราชศรีมา", isAd: false, nBookmark: 0, imageName: "it1", isShowBookmark: false),
+        CaptionImage(name: nil, caption: "นอนแพ ล่องลำน้ำซองกาเรีย เที่ยวสังขละบุรีในสายฝน", locationName: nil, isAd: false, nBookmark: 0, imageName: "it2", isShowBookmark: false),
+        CaptionImage(name: nil, caption: "เช็กอินที่เที่ยวจันทบุรีแบบชีวีตดี๊ดี เพราะเรามาเที่ยววันธรรมดา!", locationName: "เมืองจันทบุรี", isAd: false, nBookmark: 0, imageName: "it3", isShowBookmark: false)
+    ]
 
     
     override init(frame: CGRect) {
@@ -66,6 +83,10 @@ class EigthSectionCell: UICollectionViewCell {
         self.addSubview(restaurantCluesCollectionView)
         restaurantCluesCollectionView.anchor(top: bodyCollectionView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 220 + 50))
         restaurantCluesCollectionView.captionImages = restaurantClues
+        
+        self.addSubview(interestingTripsPageView)
+        interestingTripsPageView.anchor(top: restaurantCluesCollectionView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 400))
+        interestingTripsPageView.captionImages = interestingTrips
     }
     
     required init?(coder aDecoder: NSCoder) {

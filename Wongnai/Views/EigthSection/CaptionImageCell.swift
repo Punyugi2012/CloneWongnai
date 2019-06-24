@@ -148,7 +148,9 @@ class CaptionImageCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradientLayer?.frame = self.bounds
+        if captionImage?.name != nil {
+            gradientLayer?.frame = self.bounds
+        }
     }
     
     
