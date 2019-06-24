@@ -24,7 +24,7 @@ class EigthSectionCell: UICollectionViewCell {
     
     let headerPageView = ContentCaptionImagePageView()
     
-    let bodyCollectionView = BodyNewRestaurantCollectionView()
+    let bodyCollectionView = ContentCaptionImageCollectionView(isShowHeaderControls: false)
     
     let headerNewRestaurants: [CaptionImage] = [
         CaptionImage(name: "อาหารไทย เพื่อนรัก ราชเทวี", caption: "[รีวิว] \"เพื่อนรัก\" ร้านอาหารไทย รสชาติอาหารพื้นเมืองแม้ ที่ยากจะหาทาน", locationName: "ราชเทวี", isAd: false, nBookmark: 41, imageName: "nr1", isShowBookmark: true),
@@ -41,14 +41,14 @@ class EigthSectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .green
         self.addSubview(headerPageView)
         headerPageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 400))
         headerPageView.captionImages = headerNewRestaurants
         
         self.addSubview(bodyCollectionView)
         bodyCollectionView.anchor(top: headerPageView.bottomAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: .zero, size: CGSize(width: 0, height: 220))
-        bodyCollectionView.newRestaurants = bodyNewRestaurants
+        bodyCollectionView.captionImages = bodyNewRestaurants
     }
     
     required init?(coder aDecoder: NSCoder) {

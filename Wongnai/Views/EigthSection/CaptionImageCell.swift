@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BodyNewResCell: UICollectionViewCell {
+class CaptionImageCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "nr1"))
+        let iv = UIImageView(image: nil)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -60,18 +60,42 @@ class BodyNewResCell: UICollectionViewCell {
     
     var gradientLayer: CAGradientLayer?
     
-    var newRestaurant: CaptionImage? {
+    var captionImage: CaptionImage? {
         didSet {
-            imageView.image = UIImage(named: newRestaurant?.imageName ?? "")
-            nameLabel.text = newRestaurant?.name
-            locationNameLabel.text = newRestaurant?.locationName
-            nBookmarkLabel.text = "\(newRestaurant?.nBookmark ?? 0)"
+            imageView.image = UIImage(named: captionImage?.imageName ?? "")
             
-            let attributedString = NSMutableAttributedString(string: "\(newRestaurant?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: newRestaurant?.isAd == true ? UIColor.rgb(37, 121, 195) : .black])
-            if newRestaurant?.isAd == true {
+            if let name = captionImage?.name {
+                nameLabel.text = name
+                nameLabel.alpha = 1
+            }
+            else {
+                nameLabel.alpha = 0
+            }
+            
+            if let locationName = captionImage?.locationName {
+                locationNameLabel.alpha = 1
+                locationNameLabel.text = locationName
+            }
+            else {
+                locationNameLabel.alpha = 0
+            }
+            
+            if captionImage?.isShowBookmark == true {
+                bookmarkImageView.alpha = 1
+                nBookmarkLabel.alpha = 1
+                nBookmarkLabel.text = "\(captionImage?.nBookmark ?? 0)"
+            }
+            else {
+                bookmarkImageView.alpha = 0
+                nBookmarkLabel.alpha = 0
+            }
+            
+            let attributedString = NSMutableAttributedString(string: "\(captionImage?.caption ?? "")", attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: captionImage?.isAd == true ? UIColor.rgb(37, 121, 195) : .black])
+            if captionImage?.isAd == true {
                 attributedString.append(NSAttributedString(string: "• [Ad]", attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
             }
             captionLabel.attributedText = attributedString
+            
         }
     }
     
