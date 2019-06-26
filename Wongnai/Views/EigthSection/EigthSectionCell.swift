@@ -23,7 +23,7 @@ struct CaptionImage {
 class EigthSectionCell: UICollectionViewCell {
     
     let headerPageView: ContentCaptionImagePageView = {
-        let view = ContentCaptionImagePageView()
+        let view = ContentCaptionImagePageView(isShowLogo: false)
         view.titleLabel.text = "ร้านอาหารใหม่ และน่าสนใจ ในชลบุรี"
         return view
     }()
@@ -37,7 +37,7 @@ class EigthSectionCell: UICollectionViewCell {
     }()
     
     let interestingTripsPageView: ContentCaptionImagePageView = {
-        let view = ContentCaptionImagePageView()
+        let view = ContentCaptionImagePageView(isShowLogo: false)
         view.moreButton.isHidden = true
         view.titleLabel.text = "ทริป ที่พักและสถานที่่ท่องเที่ยวที่น่าสนใจ"
         return view

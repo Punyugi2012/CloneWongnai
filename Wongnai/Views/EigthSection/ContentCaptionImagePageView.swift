@@ -268,6 +268,13 @@ class ContentCaptionImagePageView: UIView {
         return label
     }()
     
+    let logoImageView: UIImageView = {
+        let iv = UIImageView(image: UIImage(named: "knorr"))
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
     let moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("ดูทั้งหมด", for: .normal)
@@ -284,11 +291,23 @@ class ContentCaptionImagePageView: UIView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    var isShowLogo = false
+    
+    init(isShowLogo: Bool) {
+        self.isShowLogo = isShowLogo
+        super.init(frame: .zero)
         self.addSubview(titleLabel)
-        titleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0), size: CGSize(width: 0, height: 50))
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        if isShowLogo {
+            self.addSubview(logoImageView)
+            logoImageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0), size: CGSize(width: 45, height: 45))
+            titleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor).isActive = true
+        }
+        else {
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
+        }
+        
+        titleLabel.anchor(top: self.topAnchor, leading: nil, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 50))
         
         self.addSubview(moreButton)
         moreButton.translatesAutoresizingMaskIntoConstraints = false
@@ -298,7 +317,6 @@ class ContentCaptionImagePageView: UIView {
         
         self.addSubview(pageView.view)
         pageView.view.anchor(top: titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
