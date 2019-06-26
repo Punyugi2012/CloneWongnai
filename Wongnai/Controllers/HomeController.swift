@@ -55,6 +55,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         self.collectionView.contentInset.top = -topInset
         self.collectionView.scrollIndicatorInsets.top = -topInset
+        self.collectionView.contentInset.bottom = -1000
         self.collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         self.collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: headerID)
@@ -92,7 +93,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 13
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -225,7 +226,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         else if indexPath.item == 11 {
             return CGSize(width: self.view.frame.width, height: 370)
         }
-        return CGSize(width: self.view.frame.width, height: 200)
+        return CGSize(width: self.view.frame.width, height: 1000)
     }
     
     var headerImageView: UIImageView?
