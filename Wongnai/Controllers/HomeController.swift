@@ -23,6 +23,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let seventhSectionID = "seventhSectionID"
     let eigthSectionID = "eigthSectionID"
     let ninethSectionID = "ninethSectionID"
+    let tenthSectionID = "tenthSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -65,6 +66,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(SeventhSectionCell.self, forCellWithReuseIdentifier: seventhSectionID)
         self.collectionView.register(EigthSectionCell.self, forCellWithReuseIdentifier: eigthSectionID)
         self.collectionView.register(NinethSectionCell.self, forCellWithReuseIdentifier: ninethSectionID)
+        self.collectionView.register(TenthSectionCell.self, forCellWithReuseIdentifier: tenthSectionID)
     }
     
     func setupNavigation() {
@@ -88,7 +90,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 12
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -145,6 +147,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 9 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ninethSectionID, for: indexPath) as! NinethSectionCell
+            return cell
+        }
+        else if indexPath.item == 10 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tenthSectionID, for: indexPath) as! TenthSectionCell
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
@@ -205,6 +211,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return CGSize(width: self.view.frame.width, height: 1830)
         }
         else if indexPath.item == 9 {
+            return CGSize(width: self.view.frame.width, height: 1290)
+        }
+        else if indexPath.item == 10 {
             return CGSize(width: self.view.frame.width, height: 1290)
         }
         return CGSize(width: self.view.frame.width, height: 200)
