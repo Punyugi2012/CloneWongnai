@@ -24,6 +24,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let eigthSectionID = "eigthSectionID"
     let ninethSectionID = "ninethSectionID"
     let tenthSectionID = "tenthSectionID"
+    let eleventhSectionID = "eleventhSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -67,6 +68,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(EigthSectionCell.self, forCellWithReuseIdentifier: eigthSectionID)
         self.collectionView.register(NinethSectionCell.self, forCellWithReuseIdentifier: ninethSectionID)
         self.collectionView.register(TenthSectionCell.self, forCellWithReuseIdentifier: tenthSectionID)
+        self.collectionView.register(EleventhSectionCell.self, forCellWithReuseIdentifier: eleventhSectionID)
     }
     
     func setupNavigation() {
@@ -153,6 +155,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tenthSectionID, for: indexPath) as! TenthSectionCell
             return cell
         }
+        else if indexPath.item == 11 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eleventhSectionID, for: indexPath) as! EleventhSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -215,6 +221,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 10 {
             return CGSize(width: self.view.frame.width, height: 700)
+        }
+        else if indexPath.item == 11 {
+            return CGSize(width: self.view.frame.width, height: 370)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
