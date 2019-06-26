@@ -22,6 +22,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let sixthSectionID = "sixthSectionID"
     let seventhSectionID = "seventhSectionID"
     let eigthSectionID = "eigthSectionID"
+    let ninethSectionID = "ninethSectionID"
     
     lazy var topInset: CGFloat = {
         return UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
@@ -63,6 +64,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         self.collectionView.register(SixthSectionCell.self, forCellWithReuseIdentifier: sixthSectionID)
         self.collectionView.register(SeventhSectionCell.self, forCellWithReuseIdentifier: seventhSectionID)
         self.collectionView.register(EigthSectionCell.self, forCellWithReuseIdentifier: eigthSectionID)
+        self.collectionView.register(NinethSectionCell.self, forCellWithReuseIdentifier: ninethSectionID)
     }
     
     func setupNavigation() {
@@ -141,6 +143,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eigthSectionID, for: indexPath) as! EigthSectionCell
             return cell
         }
+        else if indexPath.item == 9 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ninethSectionID, for: indexPath) as! NinethSectionCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.backgroundColor = .white
         return cell
@@ -197,6 +203,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         else if indexPath.item == 8 {
             return CGSize(width: self.view.frame.width, height: 1830)
+        }
+        else if indexPath.item == 9 {
+            return CGSize(width: self.view.frame.width, height: 1290)
         }
         return CGSize(width: self.view.frame.width, height: 200)
     }
