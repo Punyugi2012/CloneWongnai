@@ -8,15 +8,21 @@
 
 import UIKit
 
-struct Recommend {
+protocol ContentImageCollectionPageViewProtocol {
     
-    let imageName: String
+    var imageName: String {get set}
     
 }
 
-struct SpecialMeal {
+struct Recommend: ContentImageCollectionPageViewProtocol {
     
-    let imageName: String
+    var imageName: String
+    
+}
+
+struct SpecialMeal: ContentImageCollectionPageViewProtocol {
+    
+    var imageName: String
     
 }
 

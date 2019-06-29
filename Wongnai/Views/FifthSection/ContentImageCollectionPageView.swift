@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCollectionCell<Model>: UICollectionViewCell {
+class ImageCollectionCell<Model: ContentImageCollectionPageViewProtocol>: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView(image: nil)
@@ -19,12 +19,13 @@ class ImageCollectionCell<Model>: UICollectionViewCell {
     
     var model: Model? {
         didSet {
-            if let recommend = model as? Recommend {
-                imageView.image = UIImage(named: recommend.imageName)
-            }
-            else if let special = model as? SpecialMeal {
-                imageView.image = UIImage(named: special.imageName)
-            }
+            imageView.image = UIImage(named: model?.imageName ?? "")
+//            if let recommend = model as? Recommend {
+//                imageView.image = UIImage(named: recommend.imageName)
+//            }
+//            else if let special = model as? SpecialMeal {
+//                imageView.image = UIImage(named: special.imageName)
+//            }
         }
     }
     
@@ -44,7 +45,7 @@ class ImageCollectionCell<Model>: UICollectionViewCell {
     
 }
 
-class ImageCollectionController<Model>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ImageCollectionController<Model: ContentImageCollectionPageViewProtocol>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellID = "cellID"
     
@@ -90,7 +91,7 @@ class ImageCollectionController<Model>: UICollectionViewController, UICollection
 
 
 
-class ImageCollectionPageViewController<Model>: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class ImageCollectionPageViewController<Model: ContentImageCollectionPageViewProtocol>: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     var imageCollectionControllers: [ImageCollectionController<Model>] = []
     
@@ -177,7 +178,7 @@ class ImageCollectionPageViewController<Model>: UIPageViewController, UIPageView
 }
 
 
-class ContentImageCollectionPageView<Model>: UIView {
+class ContentImageCollectionPageView<Model: ContentImageCollectionPageViewProtocol>: UIView {
     
     
     let titleLabel: UILabel = {
